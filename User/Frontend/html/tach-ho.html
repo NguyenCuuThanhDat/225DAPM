@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tách hộ khẩu - Quản lý nhân khẩu</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/dang-ky-khai-sinh.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+        </div>
+        
+        <div class="user-profile">
+            <div class="avatar">N</div>
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#"><i class='bx bx-home-alt'></i> Trang chủ</a></li>
+            <li><a href="#"><i class='bx bx-file'></i> Đăng ký thường trú</a></li>
+            <li><a href="#"><i class='bx bx-file-blank'></i> Đăng ký tạm trú</a></li>
+            <li><a href="#"><i class='bx bx-file'></i> Đăng ký tạm vắng</a></li>
+            <li><a href="#"><i class='bx bx-group'></i> Khai nhân khẩu cho hộ gia đình</a></li>
+            <li><a href="#"><i class='bx bx-user'></i> Cập nhật thông tin cá nhân</a></li>
+            <li><a href="#"><i class='bx bx-bell'></i> Thông báo</a></li>
+            <li><a href="#"><i class='bx bx-file'></i> Gửi hồ sơ khai tử</a></li>
+            <li><a href="dang-ky-khai-sinh.html"><i class='bx bx-file-blank'></i> Gửi yêu cầu đăng ký khai sinh</a></li>
+            <li><a href="thay-doi-chu-ho.html"><i class='bx bx-user-plus'></i> Gửi yêu cầu thay đổi chủ hộ</a></li>
+            <li><a href="thay-doi-ho-khau.html"><i class='bx bx-file'></i> Gửi yêu cầu thay đổi hộ khẩu</a></li>
+            <li class="active"><a href="tach-ho.html"><i class='bx bx-cut'></i> Gửi yêu cầu tách hộ</a></li>
+            <li><a href="nhap-ho.html"><i class='bx bx-merge'></i> Gửi yêu cầu nhập hộ</a></li>
+        </ul>
+        
+        <div class="logout">
+            <a href="#"><i class='bx bx-log-out'></i> Đăng xuất</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <h1>Tách hộ khẩu</h1>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Tìm kiếm nhanh...">
+                </div>
+                <div class="notification">
+                    <i class='bx bx-bell'></i>
+                </div>
+                <div class="avatar-small">N</div>
+            </div>
+        </header>
+
+        <section class="content-wrapper">
+            <div class="form-card">
+                <!-- Stepper -->
+                <div class="stepper">
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Người gửi yêu cầu</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Hộ khẩu hiện tại</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label" style="white-space: normal; line-height: 1.2;">Thành viên & Địa<br>chỉ mới</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="4">
+                        <div class="step-circle">4</div>
+                        <div class="step-label">Lý do tách hộ</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="5">
+                        <div class="step-circle">5</div>
+                        <div class="step-label">Giấy tờ đính kèm</div>
+                    </div>
+                </div>
+
+                <!-- Form Steps Content -->
+                <form id="registrationForm">
+                    <!-- Step 1 -->
+                    <div class="form-step active" id="step-1">
+                        <h3>Thông tin người gửi yêu cầu</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Họ và tên <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập họ và tên">
+                            </div>
+                            <div class="form-group">
+                                <label>Số CCCD/CMND <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập số CCCD">
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày sinh <span class="required">*</span></label>
+                                <input type="date">
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập số điện thoại">
+                            </div>
+                            <div class="form-group">
+                                <label>Quan hệ với chủ hộ <span class="required">*</span></label>
+                                <select>
+                                    <option value="" disabled selected>Chọn quan hệ</option>
+                                    <option>Chủ hộ</option>
+                                    <option>Vợ/Chồng</option>
+                                    <option>Con</option>
+                                    <option>Khác</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="Nhập email (không bắt buộc)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" id="step-2">
+                        <h3>Thông tin hộ khẩu hiện tại</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Số sổ hộ khẩu <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập số sổ hộ khẩu">
+                            </div>
+                            <div class="form-group">
+                                <label>Họ tên chủ hộ <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập họ tên chủ hộ">
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Địa chỉ thường trú hiện tại <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập địa chỉ thường trú đầy đủ">
+                            </div>
+                            <div class="form-group">
+                                <label>Phường/Xã <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn Phường/Xã</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Quận/Huyện <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn Quận/Huyện</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tỉnh/Thành phố <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn Tỉnh/Thành phố</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tổng số thành viên trong hộ <span class="required">*</span></label>
+                                <input type="number" placeholder="Nhập số thành viên">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" id="step-3">
+                        <h3>Thành viên đề nghị tách hộ</h3>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Nhập thông tin các thành viên sẽ tách ra khỏi hộ khẩu hiện tại để lập hộ mới.</p>
+                        
+                        <!-- Member List -->
+                        <div id="member-list" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div class="member-item" style="background-color: #F9FAFB; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h4 style="margin-bottom: 20px; font-size: 15px; font-weight: 600;">Thành viên <span class="member-index">1</span></h4>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Họ và tên <span class="required">*</span></label>
+                                        <input type="text" placeholder="Nhập họ và tên">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Số CCCD/CMND <span class="required">*</span></label>
+                                        <input type="text" placeholder="Nhập số CCCD">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ngày sinh <span class="required">*</span></label>
+                                        <input type="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quan hệ với chủ hộ <span class="required">*</span></label>
+                                        <select>
+                                            <option value="" disabled selected>Chọn quan hệ</option>
+                                            <option>Chủ hộ</option>
+                                            <option>Vợ/Chồng</option>
+                                            <option>Con</option>
+                                            <option>Khác</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Member Button -->
+                        <button type="button" id="btnAddMember" style="background: none; border: none; color: var(--primary-color); font-weight: 500; font-size: 14px; display: flex; align-items: center; gap: 8px; margin-top: 15px; cursor: pointer; padding: 10px 0;">
+                            <i class='bx bx-plus-circle' style="font-size: 18px;"></i> Thêm thành viên
+                        </button>
+
+                        <div style="border-top: 1px solid var(--border-color); margin: 30px 0 25px 0;"></div>
+
+                        <h3 style="margin-bottom: 20px;">Địa chỉ hộ khẩu mới sau khi tách</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label>Địa chỉ thường trú mới <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập địa chỉ thường trú mới đầy đủ">
+                            </div>
+                            <div class="form-group">
+                                <label>Phường/Xã <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn Phường/Xã</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Quận/Huyện <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn Quận/Huyện</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tỉnh/Thành phố <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn Tỉnh/Thành phố</option></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="form-step" id="step-4">
+                        <h3>Lý do tách hộ</h3>
+                        <div class="form-grid" style="grid-template-columns: 1fr;">
+                            <div class="form-group">
+                                <label>Lý do tách hộ <span class="required">*</span></label>
+                                <select><option value="" disabled selected>Chọn lý do</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Chi tiết lý do <span class="required">*</span></label>
+                                <textarea placeholder="Mô tả chi tiết lý do tách hộ..." style="width: 100%; min-height: 120px; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-family); font-size: 14px; color: var(--text-main); resize: vertical; outline: none; background-color: var(--input-bg);"></textarea>
+                            </div>
+                        </div>
+                        <div class="info-alert" style="background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; margin-top: 25px;">
+                            <i class='bx bx-info-circle'></i>
+                            Lưu ý: Yêu cầu tách hộ cần có sự đồng ý của chủ hộ hiện tại. Người đề nghị tách hộ phải có chỗ ở hợp pháp và giấy tờ chứng minh. Vui lòng chuẩn bị đầy đủ giấy tờ ở bước tiếp theo.
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="form-step" id="step-5">
+                        <h3>Giấy tờ đính kèm</h3>
+                        <div class="upload-container">
+                            <div class="upload-item">
+                                <label>1. CMND/CCCD của người đăng ký <span class="required">*</span></label>
+                                <div class="upload-box">
+                                    <i class='bx bx-cloud-upload'></i>
+                                    <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
+                                    <span class="sub-text">Chấp nhận: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                </div>
+                            </div>
+                            <div class="upload-item">
+                                <label>2. Số hộ khẩu hiện tại <span class="required">*</span></label>
+                                <div class="upload-box">
+                                    <i class='bx bx-cloud-upload'></i>
+                                    <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
+                                    <span class="sub-text">Chấp nhận: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                </div>
+                            </div>
+                            <div class="upload-item">
+                                <label>3. Giấy xác nhận lý do tách hộ <span class="required">*</span></label>
+                                <div class="upload-box">
+                                    <i class='bx bx-cloud-upload'></i>
+                                    <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
+                                    <span class="sub-text">Chấp nhận: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                </div>
+                            </div>
+                            <div class="upload-item">
+                                <label>4. Giấy xác nhận địa chỉ mới <span class="required">*</span></label>
+                                <div class="upload-box">
+                                    <i class='bx bx-cloud-upload'></i>
+                                    <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
+                                    <span class="sub-text">Chấp nhận: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-alert" style="background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">
+                            <i class='bx bx-info-circle'></i>
+                            Lưu ý: Yêu cầu tách hộ cần có sự đồng ý của chủ hộ hiện tại. Người đề nghị tách hộ phải có chỗ ở hợp pháp và giấy tờ chứng minh. Vui lòng chuẩn bị đầy đủ các giấy tờ ở bước tiếp theo.
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="btnPrev" style="visibility: hidden;">Quay lại</button>
+                        <button type="button" class="btn btn-primary" id="btnNext">Tiếp theo</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="../js/tach-ho.js"></script>
+</body>
+</html>
