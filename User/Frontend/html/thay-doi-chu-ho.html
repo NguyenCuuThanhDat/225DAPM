@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gửi yêu cầu đăng ký khai sinh - Quản lý nhân khẩu</title>
+    <title>Gửi yêu cầu thay đổi chủ hộ - Quản lý nhân khẩu</title>
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Boxicons for icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/dang-ky-khai-sinh.css">
+    <link rel="stylesheet" href="../css/thay-doi-chu-ho.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -38,8 +38,8 @@
             <li><a href="#"><i class='bx bx-user'></i> Cập nhật thông tin cá nhân</a></li>
             <li><a href="#"><i class='bx bx-bell'></i> Thông báo</a></li>
             <li><a href="#"><i class='bx bx-file'></i> Gửi hồ sơ khai tử</a></li>
-            <li class="active"><a href="#"><i class='bx bx-file-blank'></i> Gửi yêu cầu đăng ký khai sinh</a></li>
-            <li><a href="thay-doi-chu-ho.html"><i class='bx bx-user-plus'></i> Gửi yêu cầu thay đổi chủ hộ</a></li>
+            <li><a href="dang-ky-khai-sinh.html"><i class='bx bx-file-blank'></i> Gửi yêu cầu đăng ký khai sinh</a></li>
+            <li class="active"><a href="thay-doi-chu-ho.html"><i class='bx bx-user-plus'></i> Gửi yêu cầu thay đổi chủ hộ</a></li>
             <li><a href="thay-doi-ho-khau.html"><i class='bx bx-file'></i> Gửi yêu cầu thay đổi hộ khẩu</a></li>
             <li><a href="tach-ho.html"><i class='bx bx-cut'></i> Gửi yêu cầu tách hộ</a></li>
             <li><a href="nhap-ho.html"><i class='bx bx-merge'></i> Gửi yêu cầu nhập hộ</a></li>
@@ -53,7 +53,7 @@
     <!-- Main Content -->
     <main class="main-content">
         <header class="top-header">
-            <h1>Đăng ký khai sinh</h1>
+            <h1>Thay đổi chủ hộ</h1>
             <div class="header-right">
                 <div class="search-box">
                     <i class='bx bx-search'></i>
@@ -72,26 +72,21 @@
                 <div class="stepper">
                     <div class="step active" data-step="1">
                         <div class="step-circle">1</div>
-                        <div class="step-label">Thông tin trẻ em</div>
+                        <div class="step-label">Chủ hộ hiện tại</div>
                     </div>
                     <div class="step-line"></div>
                     <div class="step" data-step="2">
                         <div class="step-circle">2</div>
-                        <div class="step-label">Thông tin cha</div>
+                        <div class="step-label">Chủ hộ mới</div>
                     </div>
                     <div class="step-line"></div>
                     <div class="step" data-step="3">
                         <div class="step-circle">3</div>
-                        <div class="step-label">Thông tin mẹ</div>
+                        <div class="step-label">Thông tin hộ & Lý do</div>
                     </div>
                     <div class="step-line"></div>
                     <div class="step" data-step="4">
                         <div class="step-circle">4</div>
-                        <div class="step-label">Địa chỉ thường trú</div>
-                    </div>
-                    <div class="step-line"></div>
-                    <div class="step" data-step="5">
-                        <div class="step-circle">5</div>
                         <div class="step-label">Giấy tờ đính kèm</div>
                     </div>
                 </div>
@@ -100,11 +95,15 @@
                 <form id="registrationForm">
                     <!-- Step 1 -->
                     <div class="form-step active" id="step-1">
-                        <h3>Thông tin trẻ em</h3>
+                        <h3>Thông tin chủ hộ hiện tại</h3>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label>Họ và tên trẻ <span class="required">*</span></label>
-                                <input type="text" placeholder="Nhập họ và tên">
+                                <label>Họ và tên <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập họ và tên chủ hộ hiện tại">
+                            </div>
+                            <div class="form-group">
+                                <label>Số CCCD/CMND <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập số CCCD">
                             </div>
                             <div class="form-group">
                                 <label>Ngày sinh <span class="required">*</span></label>
@@ -112,30 +111,10 @@
                             </div>
                             <div class="form-group">
                                 <label>Giới tính <span class="required">*</span></label>
-                                <div class="radio-group">
-                                    <label class="radio-label"><input type="radio" name="gender" value="male"> Nam</label>
-                                    <label class="radio-label"><input type="radio" name="gender" value="female"> Nữ</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Nơi sinh <span class="required">*</span></label>
-                                <input type="text" placeholder="Bệnh viện/Cơ sở y tế...">
-                            </div>
-                            <div class="form-group">
-                                <label>Dân tộc <span class="required">*</span></label>
                                 <select>
-                                    <option value="" disabled selected>Chọn dân tộc</option>
-                                    <option value="kinh">Kinh</option>
-                                    <option value="tay">Tày</option>
-                                    <option value="thai">Thái</option>
-                                    <option value="khac">Khác</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Quốc tịch <span class="required">*</span></label>
-                                <select>
-                                    <option value="vn" selected>Việt Nam</option>
-                                    <option value="khac">Khác</option>
+                                    <option value="" disabled selected>Chọn giới tính</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
                                 </select>
                             </div>
                         </div>
@@ -143,37 +122,10 @@
 
                     <!-- Step 2 -->
                     <div class="form-step" id="step-2">
-                        <h3>Thông tin cha</h3>
+                        <h3>Thông tin người được đề nghị làm chủ hộ mới</h3>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label>Họ và tên cha</label>
-                                <input type="text" placeholder="Nhập họ và tên">
-                            </div>
-                            <div class="form-group">
-                                <label>Số CCCD/CMND</label>
-                                <input type="text" placeholder="Nhập số CCCD">
-                            </div>
-                            <div class="form-group">
-                                <label>Ngày sinh</label>
-                                <input type="date">
-                            </div>
-                            <div class="form-group">
-                                <label>Nghề nghiệp</label>
-                                <input type="text" placeholder="Nhập nghề nghiệp">
-                            </div>
-                            <div class="form-group full-width">
-                                <label>Nơi cư trú</label>
-                                <input type="text" placeholder="Nhập địa chỉ thường trú">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="form-step" id="step-3">
-                        <h3>Thông tin mẹ</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label>Họ và tên mẹ <span class="required">*</span></label>
+                                <label>Họ và tên <span class="required">*</span></label>
                                 <input type="text" placeholder="Nhập họ và tên">
                             </div>
                             <div class="form-group">
@@ -185,48 +137,43 @@
                                 <input type="date">
                             </div>
                             <div class="form-group">
-                                <label>Nghề nghiệp</label>
-                                <input type="text" placeholder="Nhập nghề nghiệp">
+                                <label>Quan hệ với chủ hộ hiện tại <span class="required">*</span></label>
+                                <select>
+                                    <option value="" disabled selected>Chọn quan hệ</option>
+                                    <option value="Vợ/Chồng">Vợ/Chồng</option>
+                                    <option value="Con đẻ">Con đẻ</option>
+                                    <option value="Bố/Mẹ">Bố/Mẹ</option>
+                                    <option value="Khác">Khác</option>
+                                </select>
                             </div>
-                            <div class="form-group full-width">
-                                <label>Nơi cư trú <span class="required">*</span></label>
-                                <input type="text" placeholder="Nhập địa chỉ thường trú">
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" id="step-3">
+                        <h3>Thông tin hộ gia đình & Lý do</h3>
+                        <div class="form-grid" style="grid-template-columns: 1fr;">
+                            <div class="form-group">
+                                <label>Mã hộ gia đình / Số sổ hộ khẩu <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập mã hộ gia đình">
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ thường trú của hộ <span class="required">*</span></label>
+                                <input type="text" placeholder="Nhập địa chỉ thường trú đầy đủ">
+                            </div>
+                            <div class="form-group" style="height: auto;">
+                                <label>Lý do thay đổi chủ hộ <span class="required">*</span></label>
+                                <textarea placeholder="Trình bày rõ lý do thay đổi chủ hộ (VD: Chủ hộ cũ đã mất, chuyển đi nơi khác, hoặc lý do khác...)" style="width: 100%; min-height: 120px; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-family); font-size: 14px; color: var(--text-main); resize: vertical; outline: none; background-color: var(--input-bg);"></textarea>
                             </div>
                         </div>
                     </div>
 
                     <!-- Step 4 -->
                     <div class="form-step" id="step-4">
-                        <h3>Địa chỉ thường trú của gia đình</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label>Tỉnh/Thành phố <span class="required">*</span></label>
-                                <select>
-                                    <option value="" disabled selected>Chọn Tỉnh/Thành phố</option>
-                                    <option value="hanoi">Hà Nội</option>
-                                    <option value="hcm">Hồ Chí Minh</option>
-                                    <option value="danang">Đà Nẵng</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Phường/Xã <span class="required">*</span></label>
-                                <select>
-                                    <option value="" disabled selected>Chọn Phường/Xã</option>
-                                </select>
-                            </div>
-                            <div class="form-group full-width">
-                                <label>Địa chỉ chi tiết (Số nhà, đường...) <span class="required">*</span></label>
-                                <input type="text" placeholder="Nhập địa chỉ chi tiết">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 5 -->
-                    <div class="form-step" id="step-5">
                         <h3>Giấy tờ đính kèm</h3>
                         <div class="upload-container">
                             <div class="upload-item">
-                                <label>1. Giấy khai sinh <span class="required">*</span></label>
+                                <label>1. CMND/CCCD của chủ hộ hiện tại <span class="required">*</span></label>
                                 <div class="upload-box">
                                     <i class='bx bx-cloud-upload'></i>
                                     <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
@@ -234,7 +181,7 @@
                                 </div>
                             </div>
                             <div class="upload-item">
-                                <label>2. CMND/CCCD của người đăng ký <span class="required">*</span></label>
+                                <label>2. CMND/CCCD của chủ hộ mới <span class="required">*</span></label>
                                 <div class="upload-box">
                                     <i class='bx bx-cloud-upload'></i>
                                     <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
@@ -242,7 +189,7 @@
                                 </div>
                             </div>
                             <div class="upload-item">
-                                <label>3. Sổ hộ khẩu hiện tại <span class="required">*</span></label>
+                                <label>3. Sổ hộ khẩu <span class="required">*</span></label>
                                 <div class="upload-box">
                                     <i class='bx bx-cloud-upload'></i>
                                     <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
@@ -250,7 +197,7 @@
                                 </div>
                             </div>
                             <div class="upload-item">
-                                <label>4. Giấy xác nhận địa chỉ thường trú <span class="required">*</span></label>
+                                <label>4. Giấy xác nhận lý do thay đổi <span class="required">*</span></label>
                                 <div class="upload-box">
                                     <i class='bx bx-cloud-upload'></i>
                                     <p><span class="highlight">Chọn tệp</span> hoặc kéo thả tệp vào đây</p>
@@ -258,9 +205,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info-alert">
+                        <div class="info-alert" style="background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">
                             <i class='bx bx-info-circle'></i>
-                            Lưu ý: Vui lòng chuẩn bị đầy đủ các giấy tờ chứng minh. Các tệp tin phải rõ ràng, đầy đủ thông tin và đúng định dạng quy định.
+                            Lưu ý: Yêu cầu thay đổi chủ hộ cần có sự đồng ý của chủ hộ hiện tại (nếu người gửi không phải chủ hộ). Vui lòng đảm bảo các giấy tờ chứng minh đầy đủ ở bước tiếp theo.
                         </div>
                     </div>
 
@@ -273,6 +220,6 @@
             </div>
         </section>
     </main>
-    <script src="../js/dang-ky-khai-sinh.js"></script>
+    <script src="../js/thay-doi-chu-ho.js"></script>
 </body>
 </html>
