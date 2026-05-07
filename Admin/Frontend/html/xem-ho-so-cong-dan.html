@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem hồ sơ công dân - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div>
+                <h2>HỆ THỐNG QUẢN LÝ<br>NHÂN KHẨU</h2>
+                <p>Ủy ban nhân dân Phường/Xã</p>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#"><i class='bx bx-home-alt'></i> Trang chủ</a></li>
+            <li class="active"><a href="xem-ho-so-cong-dan.html"><i class='bx bx-group'></i> Xem hồ sơ công dân</a></li>
+            <li><a href="#"><i class='bx bx-check-square'></i> Duyệt hồ sơ thường trú</a></li>
+            <li><a href="#"><i class='bx bx-file'></i> Duyệt hồ sơ tạm trú</a></li>
+            <li><a href="#"><i class='bx bx-file-blank'></i> Duyệt hồ sơ tạm vắng</a></li>
+            <li><a href="#"><i class='bx bx-history'></i> Xem lịch sử duyệt hồ sơ</a></li>
+        </ul>
+        
+        <div class="user-profile">
+            <div class="avatar">
+                <i class='bx bx-user'></i>
+            </div>
+            <div class="user-info">
+                <h4>Nguyễn Văn An</h4>
+                <span class="role">Cán bộ đăng ký cư trú</span>
+            </div>
+        </div>
+        
+        <div class="logout">
+            <a href="#"><i class='bx bx-log-out'></i> Đăng xuất</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Xem hồ sơ công dân</h1>
+        </div>
+
+        <div class="content-card">
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active" data-tab="pending">Chờ xử lý <span class="badge">12</span></div>
+                <div class="tab" data-tab="approved">Đã duyệt <span class="badge badge-gray">45</span></div>
+                <div class="tab" data-tab="rejected">Từ chối <span class="badge badge-gray">3</span></div>
+                <div class="tab" data-tab="additional">Yêu cầu bổ sung <span class="badge badge-gray">7</span></div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Tìm kiếm theo mã hồ sơ, tên công dân, CCCD...">
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Mã hồ sơ</th>
+                            <th>Họ tên công dân</th>
+                            <th>CCCD</th>
+                            <th>Địa chỉ đăng ký</th>
+                            <th>Ngày nộp</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>HS001234</strong></td>
+                            <td>Trần Thị Bình</td>
+                            <td>001234567890</td>
+                            <td class="address-col">123 Đường Lê Lợi, Phường Tràng Tiền, Quận Hoàn Kiếm, Hà Nội</td>
+                            <td>20/03/2026</td>
+                            <td>
+                                <button class="btn-view" onclick="openModal('HS001234')">
+                                    <i class='bx bx-show'></i> Xem chi tiết
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>HS001235</strong></td>
+                            <td>Phạm Thị Dung</td>
+                            <td>001234567892</td>
+                            <td class="address-col">789 Đường Trần Hưng Đạo, Phường Cửa Nam, Quận Hoàn Kiếm, Hà Nội</td>
+                            <td>21/03/2026</td>
+                            <td>
+                                <button class="btn-view" onclick="openModal('HS001235')">
+                                    <i class='bx bx-show'></i> Xem chi tiết
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Detail -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Chi tiết hồ sơ công dân</h2>
+                <button class="btn-close" onclick="closeModal()"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="section">
+                    <h3 class="section-title">Thông tin cá nhân</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Họ và tên</label>
+                            <p>Trần Thị Bình</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Số CCCD</label>
+                            <p>001234567890</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Ngày sinh</label>
+                            <p>15/05/1985</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Giới tính</label>
+                            <p>Nữ</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Quốc tịch</label>
+                            <p>Việt Nam</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Dân tộc</label>
+                            <p>Kinh</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Tôn giáo</label>
+                            <p>Không</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Thông tin hộ gia đình</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Mã hộ gia đình</label>
+                            <p>HK00123</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Quan hệ với chủ hộ</label>
+                            <p>Vợ</p>
+                        </div>
+                        <div class="info-item full-width">
+                            <label>Địa chỉ thường trú</label>
+                            <p>123 Đường Lê Lợi, Phường Tràng Tiền, Quận Hoàn Kiếm, Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Lịch sử cư trú</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <span class="timeline-date">10/01/2010</span>
+                                    <span class="timeline-status">Đăng ký thường trú</span>
+                                </div>
+                                <p class="timeline-desc">45 Nguyễn Huệ, Quận 1, TP.HCM</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <span class="timeline-date">20/03/2026</span>
+                                    <span class="timeline-status">Chuyển khẩu</span>
+                                </div>
+                                <p class="timeline-desc">123 Đường Lê Lợi, Phường Tràng Tiền, Quận Hoàn Kiếm, Hà Nội</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal()">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/xem-ho-so-cong-dan.js"></script>
+</body>
+</html>
