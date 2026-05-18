@@ -1,37 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-    setupSidebarNavigation();
-    navigateTo('khai-sinh');
-});
-
-function setupSidebarNavigation() {
-    document.querySelectorAll('.nav-item[data-page]').forEach(item => {
-        item.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            document.querySelectorAll('.nav-item').forEach(nav => {
-                nav.classList.remove('active');
-            });
-
-            this.classList.add('active');
-
-            const page = this.getAttribute('data-page');
-            navigateTo(page);
-        });
-    });
-}
-
-function navigateTo(page) {
-    const pageContent = document.getElementById('pageContent');
-
-    if (page === 'khai-sinh') {
-        pageContent.innerHTML = renderKhaiSinhContent();
-        initKhaiSinhEvents();
-        return;
-    }
-
-    pageContent.innerHTML = renderNotAvailableContent();
-}
-
 function renderKhaiSinhContent() {
     return `
         <div class="list-panel">
@@ -397,17 +363,17 @@ function initKhaiSinhEvents() {
     });
 }
 
-function renderNotAvailableContent() {
-    return `
-        <div class="list-panel" style="align-items:center; justify-content:center;">
-            <div style="text-align:center; color:#999;">
-                <div style="font-size:40px; margin-bottom:12px;">⚠️</div>
-                <h2>Chưa có màn hình này</h2>
-                <p>Chức năng này sẽ được thiết kế sau.</p>
-            </div>
-        </div>
-    `;
-}
+// function renderNotAvailableContent() {
+//     return `
+//         <div class="list-panel" style="align-items:center; justify-content:center;">
+//             <div style="text-align:center; color:#999;">
+//                 <div style="font-size:40px; margin-bottom:12px;">⚠️</div>
+//                 <h2>Chưa có màn hình này</h2>
+//                 <p>Chức năng này sẽ được thiết kế sau.</p>
+//             </div>
+//         </div>
+//     `;
+// }
 
 function closeDetailPanel() {
     document.getElementById('detailModal')?.classList.remove('active');
@@ -446,17 +412,6 @@ function downloadFile(event) {
     const fileName = event.target.closest('.file-item').querySelector('.file-name').textContent;
     alert(`Tải về file: ${fileName}`);
 }
-
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        closeDetailPanel();
-    }
-
-    if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
-        e.preventDefault();
-        document.querySelector('.search-input')?.focus();
-    }
-});
 
 function validateRequiredNote() {
     const noteInput = document.querySelector('.required-note');
@@ -510,11 +465,3 @@ function requestMore() {
     const recordId = document.querySelector('.record-title')?.textContent || '';
     alert(`Yêu cầu bổ sung cho hồ sơ ${recordId} đã được gửi!`);
 }
-
-document.addEventListener('click', function (event) {
-    const modal = document.getElementById('detailModal');
-
-    if (event.target === modal) {
-        closeDetailPanel();
-    }
-});
