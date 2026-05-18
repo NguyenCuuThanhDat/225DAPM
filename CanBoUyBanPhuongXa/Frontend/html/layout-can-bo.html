@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận hồ sơ khai sinh</title>
+    <link rel="stylesheet" href="../css/xac-nhan-ho-so-khai-sinh.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container-main">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div style="width: 40px; height: 40px; background: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #A6302B;">S</div>
+                    <div class="logo-text">
+                        <div class="logo-title">Hệ thống Quản lý</div>
+                        <div class="logo-subtitle">Hộ tịch & Nhân khẩu</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item" data-page="dashboard">
+                    <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
+                    <span>Tổng quan</span>
+                </a>
+
+                <a href="#" class="nav-item active" data-page="khai-sinh">
+                    <span class="nav-icon"><i class="fa-solid fa-baby"></i></span>
+                    <span>Xác nhận hồ sơ khai sinh</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="khai-tu">
+                    <span class="nav-icon"><i class="fa-solid fa-file-circle-xmark"></i></span>
+                    <span>Xác nhận hồ sơ khai tử</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="xem-ho">
+                    <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
+                    <span>Xem hồ sơ hộ gia đình</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="tach-ho">
+                    <span class="nav-icon"><i class="fa-solid fa-user-minus"></i></span>
+                    <span>Xác nhận tách hộ</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="nhap-ho">
+                    <span class="nav-icon"><i class="fa-solid fa-user-plus"></i></span>
+                    <span>Xác nhận nhập hộ</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="doi-chu-ho">
+                    <span class="nav-icon"><i class="fa-solid fa-user-gear"></i></span>
+                    <span>Xác nhận thay đổi chủ hộ</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="chuyen-ho-khau">
+                    <span class="nav-icon"><i class="fa-solid fa-location-dot"></i></span>
+                    <span>Xác nhận chuyển hộ khẩu</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="bao-cao">
+                    <span class="nav-icon"><i class="fa-solid fa-chart-column"></i></span>
+                    <span>Lập báo cáo thống kê</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item" data-page="logout">
+                    <span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                    <span>Đăng xuất</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1>Công thông tin Căn bộ Ủy ban Phường/Xã</h1>
+                <div class="user-info">
+                    <span>Nguyễn Văn Căn Bộ · Phường Bến Nghé, Quận 1</span>
+                </div>
+            </header>
+
+            <!-- Content Container -->
+            <div id="pageContent" class="content-container"></div>
+        </div>
+    </div>
+
+    <script src="../js/xac-nhan-ho-so-khai-sinh.js"></script>
+</body>
+</html>
