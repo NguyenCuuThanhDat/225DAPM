@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân - Quản lý nhân khẩu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- BỘ CSS CỦA BẠN ĐÃ ĐƯỢC TÍCH HỢP --- */
+        * {
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        textarea {
+            resize: none;
+            min-height: 120px;
+        }
+
+        .button-group {
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .btn {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #cf2027; /* Màu đỏ thương hiệu */
+            color: white;
+        }
+
+        .btn-light {
+            background: #eee;
+            border-radius: 12px;
+            border-left: 4px solid #cf2027;
+        }
+
+        .profile-table {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05); /* Thêm đổ bóng nhẹ cho sang */
+        }
+
+        .profile-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid #eee;
+            align-items: center; /* Giữ các icon canh giữa theo chiều dọc */
+        }
+
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .notification-item {
+            background: white;
+            padding: 18px;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f9fa] flex h-screen text-gray-800 overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between shrink-0">
+        <div>
+            <div class="bg-[#b31f24] text-white p-4 flex items-center">
+                <div class="bg-white/20 p-2 rounded mr-3">
+                    <i class="fa-solid fa-building-flag text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xs font-bold uppercase tracking-wider">Quản lý nhân khẩu</h1>
+                    <p class="text-[10px] text-white/80">UBND Phường/Xã</p>
+                </div>
+            </div>
+
+            <div class="p-4 flex items-center border-b border-gray-100">
+                <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-sm mr-3">
+                    N
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold text-gray-700">Nguyễn Văn A</h2>
+                    <span class="inline-block bg-blue-50 text-blue-600 text-[10px] px-2 py-0.5 rounded-full font-medium mt-0.5">
+                        Công dân
+                    </span>
+                </div>
+            </div>
+
+            <nav class="p-3">
+                <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-500 hover:bg-gray-50 text-sm mb-1">
+                    <i class="fa-solid fa-house w-5 text-center text-base mr-3"></i>
+                    <span>Trang chủ</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-2.5 rounded-lg bg-red-50 text-red-600 font-medium text-sm mb-1">
+                    <i class="fa-solid fa-user-gear w-5 text-center text-base mr-3"></i>
+                    <span>Thông tin cá nhân</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-500 hover:bg-gray-50 text-sm mb-1">
+                    <i class="fa-solid fa-users w-5 text-center text-base mr-3"></i>
+                    <span>Hộ khẩu</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-500 hover:bg-gray-50 text-sm mb-1">
+                    <i class="fa-solid fa-file-lines w-5 text-center text-base mr-3"></i>
+                    <span>Yêu cầu của tôi</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-500 hover:bg-gray-50 text-sm">
+                    <i class="fa-solid fa-bell w-5 text-center text-base mr-3"></i>
+                    <span>Thông báo</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-3 border-t border-gray-100">
+            <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-500 hover:bg-gray-50 text-sm">
+                <i class="fa-solid fa-arrow-right-from-bracket w-5 text-center text-base mr-3"></i>
+                <span>Đăng xuất</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-y-auto">
+        
+        <header class="bg-white border-b border-gray-100 h-16 px-8 flex items-center justify-between shrink-0">
+            <div class="text-sm font-semibold text-gray-700">Thông tin cá nhân</div>
+            <div class="flex items-center">
+                <div class="relative w-64 mr-6">
+                    <input type="text" placeholder="Tìm kiếm nhanh..." class="w-full bg-gray-50 border border-gray-200 text-xs rounded-lg pl-3 pr-8 py-2 focus:outline-none">
+                </div>
+                <button class="relative text-gray-400 hover:text-gray-600 mr-6">
+                    <i class="fa-regular fa-bell text-lg"></i>
+                    <span class="absolute top-0 right-0 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="w-8 h-8 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xs">
+                    N
+                </div>
+            </div>
+        </header>
+
+        <div class="p-10 max-w-5xl w-full mx-auto flex-1">
+            
+            <div class="mb-6">
+                <h2 class="text-xl font-bold text-gray-800">Thông tin cá nhân</h2>
+                <p class="text-xs text-gray-400 mt-1">Quản lý và cập nhật thông tin cá nhân của bạn trên hệ thống.</p>
+            </div>
+
+            <div class="profile-table border border-gray-100">
+                
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Họ và tên</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">Nguyễn Văn A</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Ngày sinh</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">1990-05-15</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Số CCCD/CMND</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">079090012345</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Số điện thoại</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">0901234567</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Email</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">nguyenvana@email.com</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Địa chỉ chi tiết</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">123 Nguyễn Huệ</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Phường/Xã</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">Phường 1</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-row !border-b-0">
+                    <div class="w-1/3 text-xs font-medium text-gray-400">Quận/Huyện</div>
+                    <div class="w-2/3 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-gray-700">Quận 1</span>
+                        <button class="text-gray-400 hover:text-blue-600"><i class="fa-solid fa-pen text-xs"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary text-xs font-medium">
+                    Lưu tất cả thay đổi
+                </button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
