@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài khoản | Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/quan-ly-tai-khoan.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div class="sidebar-title">
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>Admin System</p>
+            </div>
+        </div>
+        <div class="user-info">
+            <div class="avatar">AD</div>
+            <div class="user-detail">
+                <h4>Admin System</h4>
+                <span class="role">Quản trị viên</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="quan-ly-tai-khoan.html" class="nav-item active">
+                <i class='bx bx-user-circle'></i><span>Quản lý tài khoản</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="logout"><i class='bx bx-log-out'></i> Đăng xuất</a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <header class="top-bar">
+            <h1>Quản lý tài khoản người dùng</h1>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <i class='bx bx-search'></i>
+                    <input type="text" id="searchInput" placeholder="Tìm theo tên đăng nhập, họ tên, email...">
+                </div>
+                <div class="notification"><i class='bx bx-bell'></i></div>
+                <div class="avatar-small">AD</div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- STATS CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-user'></i></div>
+                    <div class="stat-info">
+                        <h3 id="totalAccounts">0</h3>
+                        <p>Tổng tài khoản</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-check-circle'></i></div>
+                    <div class="stat-info">
+                        <h3 id="activeAccounts">0</h3>
+                        <p>Đang hoạt động</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-lock'></i></div>
+                    <div class="stat-info">
+                        <h3 id="lockedAccounts">0</h3>
+                        <p>Đã khóa</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-group'></i></div>
+                    <div class="stat-info">
+                        <h3 id="citizenAccounts">0</h3>
+                        <p>Công dân</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD CHÍNH -->
+            <div class="card">
+                <!-- TOOLBAR -->
+                <div class="toolbar">
+                    <div class="toolbar-left">
+                        <button class="btn-primary" id="btnAdd"><i class='bx bx-plus'></i> Thêm tài khoản</button>
+                    </div>
+                    <div class="toolbar-right">
+                        <div class="filter-group">
+                            <select id="roleFilter">
+                                <option value="all">📋 Tất cả vai trò</option>
+                                <option value="Admin">👑 Admin</option>
+                                <option value="Cán bộ UBND">🏛️ Cán bộ UBND</option>
+                                <option value="Cán bộ đăng ký">👮 Cán bộ đăng ký cư trú</option>
+                                <option value="Công dân">👤 Công dân</option>
+                            </select>
+                            <select id="statusFilter">
+                                <option value="all">📌 Tất cả trạng thái</option>
+                                <option value="Hoạt động">✅ Hoạt động</option>
+                                <option value="Đã khóa">🔒 Đã khóa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên đăng nhập</th>
+                                <th>Họ và tên</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Vai trò</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày tạo</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr><td colspan="9" class="loading"><div class="spinner"></div> Đang tải dữ liệu...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PAGINATION -->
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL THÊM/SỬA TÀI KHOẢN -->
+    <div class="modal" id="accountModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle"><i class='bx bx-user-plus'></i> Thêm tài khoản</h3>
+                <button class="modal-close" onclick="closeModal()"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="accountForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tên đăng nhập <span class="required">*</span></label>
+                            <input type="text" id="username" placeholder="Nhập tên đăng nhập">
+                        </div>
+                        <div class="form-group">
+                            <label>Mật khẩu <span class="required">*</span></label>
+                            <input type="password" id="password" placeholder="Nhập mật khẩu (mặc định: 123456)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Họ và tên <span class="required">*</span></label>
+                            <input type="text" id="fullname" placeholder="Nhập họ và tên">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" id="phone" placeholder="Nhập số điện thoại">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Vai trò</label>
+                            <select id="role">
+                                <option value="Công dân">👤 Công dân</option>
+                                <option value="Cán bộ đăng ký">👮 Cán bộ đăng ký cư trú</option>
+                                <option value="Cán bộ UBND">🏛️ Cán bộ UBND</option>
+                                <option value="Admin">👑 Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            <select id="status">
+                                <option value="Hoạt động">✅ Hoạt động</option>
+                                <option value="Đã khóa">🔒 Đã khóa</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" onclick="closeModal()">Hủy bỏ</button>
+                <button class="btn-primary" id="btnSave">Lưu tài khoản</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL XÁC NHẬN XÓA -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-container modal-sm">
+            <div class="modal-header">
+                <h3><i class='bx bx-question-mark'></i> Xác nhận xóa</h3>
+                <button class="modal-close" onclick="closeConfirmModal()"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" onclick="closeConfirmModal()">Hủy bỏ</button>
+                <button class="btn-danger" id="confirmBtn">Xác nhận xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ĐẶT LẠI MẬT KHẨU -->
+    <div class="modal" id="resetModal">
+        <div class="modal-container modal-sm">
+            <div class="modal-header">
+                <h3><i class='bx bx-key'></i> Đặt lại mật khẩu</h3>
+                <button class="modal-close" onclick="closeResetModal()"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="resetMessage"></p>
+                <div class="info-box">
+                    <i class='bx bx-info-circle'></i>
+                    Mật khẩu mới sẽ được gửi đến email của người dùng.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" onclick="closeResetModal()">Đóng</button>
+                <button class="btn-primary" id="resetConfirmBtn">Gửi mật khẩu mới</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/quan-ly-tai-khoan.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lập báo cáo thống kê | Cán bộ UBND</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/style-common.css">
+    <link rel="stylesheet" href="../css/lap-bao-cao-thong-ke.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div class="sidebar-title">
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+        </div>
+        <div class="user-info">
+            <div class="avatar">TB</div>
+            <div class="user-detail">
+                <h4>Trần Thị B</h4>
+                <span class="role">Cán bộ UBND</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="xac-nhan-tach-ho.html" class="nav-item"><i class='bx bx-cut'></i><span>Xác nhận tách hộ</span></a>
+            <a href="xac-nhan-nhap-ho.html" class="nav-item"><i class='bx bx-merge'></i><span>Xác nhận nhập hộ</span></a>
+            <a href="xac-nhan-thay-doi-chu-ho.html" class="nav-item"><i class='bx bx-user-plus'></i><span>Thay đổi chủ hộ</span></a>
+            <a href="xac-nhan-chuyen-ho-khau.html" class="nav-item"><i class='bx bx-move'></i><span>Chuyển hộ khẩu</span></a>
+            <a href="lap-bao-cao-thong-ke.html" class="nav-item active"><i class='bx bx-bar-chart-alt-2'></i><span>Báo cáo thống kê</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="logout"><i class='bx bx-log-out'></i> Đăng xuất</a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <header class="top-bar">
+            <h1>Lập báo cáo thống kê</h1>
+            <div class="header-actions">
+                <div class="notification"><i class='bx bx-bell'></i></div>
+                <div class="avatar-small">TB</div>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- STATS CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-group'></i></div>
+                    <div class="stat-info">
+                        <h3 id="totalPopulation">0</h3>
+                        <p>Tổng nhân khẩu</p>
+                    </div>
+                    <div class="stat-change positive">+2.5%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-home'></i></div>
+                    <div class="stat-info">
+                        <h3 id="totalHouseholds">0</h3>
+                        <p>Tổng hộ gia đình</p>
+                    </div>
+                    <div class="stat-change positive">+1.2%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-time'></i></div>
+                    <div class="stat-info">
+                        <h3 id="pendingDocuments">0</h3>
+                        <p>Hồ sơ chờ xử lý</p>
+                    </div>
+                    <div class="stat-change negative">-3</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class='bx bx-check-circle'></i></div>
+                    <div class="stat-info">
+                        <h3 id="processedDocuments">0</h3>
+                        <p>Hồ sơ đã xử lý tháng này</p>
+                    </div>
+                    <div class="stat-change positive">+8</div>
+                </div>
+            </div>
+
+            <!-- REPORT OPTIONS -->
+            <div class="report-card">
+                <div class="report-options">
+                    <div class="option-group">
+                        <div class="option-item">
+                            <label>Loại báo cáo</label>
+                            <select id="reportType">
+                                <option value="population">📊 Thống kê dân số theo giới tính</option>
+                                <option value="age">👥 Thống kê theo độ tuổi</option>
+                                <option value="household">🏠 Thống kê hộ gia đình theo khu vực</option>
+                                <option value="document">📋 Thống kê hồ sơ theo loại</option>
+                                <option value="trend">📈 Biến động dân số 6 tháng</option>
+                            </select>
+                        </div>
+                        <div class="option-item">
+                            <label>Từ ngày</label>
+                            <input type="date" id="fromDate" value="2025-01-01">
+                        </div>
+                        <div class="option-item">
+                            <label>Đến ngày</label>
+                            <input type="date" id="toDate" value="2025-12-31">
+                        </div>
+                        <div class="option-item">
+                            <label>Phạm vi</label>
+                            <select id="scope">
+                                <option value="all">🏛️ Toàn phường/xã</option>
+                                <option value="zone1">📍 Khu vực 1</option>
+                                <option value="zone2">📍 Khu vực 2</option>
+                                <option value="zone3">📍 Khu vực 3</option>
+                            </select>
+                        </div>
+                        <div class="option-item">
+                            <button class="btn-secondary" id="btnGenerate"><i class='bx bx-bar-chart-alt-2'></i> Tạo báo cáo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REPORT RESULT -->
+                <div class="report-result">
+                    <h3 id="reportTitle">Thống kê dân số theo giới tính</h3>
+                    
+                    <!-- CHART -->
+                    <div class="chart-container">
+                        <div class="bar-chart" id="barChart"></div>
+                    </div>
+
+                    <!-- DETAIL TABLE -->
+                    <div class="table-container">
+                        <table class="data-table" id="detailTable">
+                            <thead>
+                                <tr><th>Danh mục</th><th>Số lượng</th><th>Tỷ lệ (%)</th><th>Biểu đồ</th></tr>
+                            </thead>
+                            <tbody id="detailBody"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- EXPORT BUTTONS -->
+                    <div class="export-buttons">
+                        <button class="btn-outline" id="btnExportExcel"><i class='bx bxs-file-export'></i> Xuất Excel</button>
+                        <button class="btn-outline" id="btnExportPDF"><i class='bx bxs-file-pdf'></i> Xuất PDF</button>
+                        <button class="btn-outline" id="btnPrint"><i class='bx bx-printer'></i> In báo cáo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/lap-bao-cao-thong-ke.js"></script>
+</body>
+</html>
