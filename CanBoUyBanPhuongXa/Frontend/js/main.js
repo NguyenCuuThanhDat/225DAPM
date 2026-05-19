@@ -31,6 +31,12 @@ function navigateTo(page) {
         return;
     }
 
+    if (page === 'xem-ho') {
+        pageContent.innerHTML = renderXemHoGiaDinhContent();
+        initXemHoGiaDinhEvents();
+        return;
+    }
+
     pageContent.innerHTML = renderNotAvailableContent();
 }
 
