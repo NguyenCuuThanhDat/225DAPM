@@ -1,0 +1,51 @@
+@import url('./global.css');
+
+.page-title {
+  margin-bottom: 24px;
+}
+
+.page-title h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.page-title p {
+  color: #666;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-label {
+  width: 220px;
+  color: #666;
+}
+
+.profile-value {
+  flex: 1;
+  font-weight: 500;
+}
+
+.profile-action i {
+  cursor: pointer;
+  color: #888;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-save {
+  background: #e89b9b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
