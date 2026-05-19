@@ -6,40 +6,52 @@
     <title>Xem hồ sơ công dân - Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/admin-style.css">
+    <link rel="stylesheet" href="../css/xem-ho-so-cong-dan.css">
 </head>
 <body>
     <!-- Sidebar -->
     <aside class="sidebar">
-        <div class="sidebar-header">
-            <i class='bx bxs-bank'></i>
+        <div class="sidebar-brand">
+            <div class="sidebar-icon"><i class='bx bxs-shield'></i></div>
             <div>
-                <h2>HỆ THỐNG QUẢN LÝ<br>NHÂN KHẨU</h2>
-                <p>Ủy ban nhân dân Phường/Xã</p>
+                <h2>HỆ THỐNG QUẢN LÝ</h2>
+                <p>NHÂN KHẨU, HỘ GIA ĐÌNH</p>
+                <span>UBND PHƯỜNG HÒA CƯỜNG NAM</span>
             </div>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#"><i class='bx bx-home-alt'></i> Trang chủ</a></li>
-            <li class="active"><a href="xem-ho-so-cong-dan.html"><i class='bx bx-group'></i> Xem hồ sơ công dân</a></li>
-            <li><a href="#"><i class='bx bx-check-square'></i> Duyệt hồ sơ thường trú</a></li>
-            <li><a href="#"><i class='bx bx-file'></i> Duyệt hồ sơ tạm trú</a></li>
-            <li><a href="#"><i class='bx bx-file-blank'></i> Duyệt hồ sơ tạm vắng</a></li>
-            <li><a href="#"><i class='bx bx-history'></i> Xem lịch sử duyệt hồ sơ</a></li>
-        </ul>
-        
-        <div class="user-profile">
-            <div class="avatar">
-                <i class='bx bx-user'></i>
+        <nav class="sidebar-nav">
+            <a href="duyet-ho-so-cu-tru.html" class="nav-item" data-page="home"><i class='bx bx-home-alt'></i> Trang chủ</a>
+            <a href="xem-ho-so-cong-dan.html" class="nav-item active" data-page="view-citizen-records"><i class='bx bx-user'></i> Xem hồ sơ công dân</a>
+
+            <div class="nav-group">
+                <a href="duyet-ho-so-cu-tru.html" class="nav-item nav-group-toggle" data-page="duyet-ho-so">
+                    <i class='bx bx-folder-open'></i>
+                    Duyệt hồ sơ cư trú
+                    <i class='bx bx-chevron-down chevron'></i>
+                </a>
+                <div class="submenu">
+                    <a href="duyet-ho-so-cu-tru.html" class="nav-subitem" data-page="duyet-ho-so" data-subpage="thuong-tru"><i class='bx bx-radio-circle'></i> Thường trú</a>
+                    <a href="duyet-ho-so-cu-tru.html" class="nav-subitem" data-page="duyet-ho-so" data-subpage="tam-tru"><i class='bx bx-radio-circle'></i> Tạm trú</a>
+                    <a href="duyet-ho-so-cu-tru.html" class="nav-subitem" data-page="duyet-ho-so" data-subpage="tam-vang"><i class='bx bx-radio-circle'></i> Tạm vắng</a>
+                </div>
             </div>
-            <div class="user-info">
-                <h4>Nguyễn Văn An</h4>
-                <span class="role">Cán bộ đăng ký cư trú</span>
+
+            <a href="duyet-ho-so-cu-tru.html" class="nav-item" data-page="history"><i class='bx bx-calendar-check'></i> Lịch sử duyệt hồ sơ</a>
+            <a href="#" class="nav-item" data-page="notifications"><i class='bx bx-bell'></i> Thông báo</a>
+            <a href="#" class="nav-item" data-page="reports"><i class='bx bx-chart'></i> Báo cáo thống kê</a>
+            <a href="#" class="nav-item" data-page="settings"><i class='bx bx-cog'></i> Cài đặt</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="profile">
+                <div class="avatar"><i class='bx bx-user-circle'></i></div>
+                <div>
+                    <span class="name">Nguyễn Văn A</span>
+                    <span class="role">Cán bộ đăng ký cư trú</span>
+                </div>
             </div>
-        </div>
-        
-        <div class="logout">
-            <a href="#"><i class='bx bx-log-out'></i> Đăng xuất</a>
+            <button class="btn-logout"><i class='bx bx-log-out'></i> Đăng xuất</button>
         </div>
     </aside>
 
