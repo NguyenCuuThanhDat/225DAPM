@@ -1,51 +1,67 @@
 @import url('./global.css');
 
 .page-title {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .page-title h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 .page-title p {
-  color: #666;
+    color: var(--text-muted);
+}
+
+.profile-card {
+    max-width: 100%;
 }
 
 .profile-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-row:last-child {
+    border-bottom: none;
 }
 
 .profile-label {
-  width: 220px;
-  color: #666;
+    width: 220px;
+    color: var(--text-muted);
+    font-size: 14px;
 }
 
 .profile-value {
-  flex: 1;
-  font-weight: 500;
+    flex: 1;
+    font-weight: 500;
 }
 
 .profile-action i {
-  cursor: pointer;
-  color: #888;
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
 }
 
 .profile-actions {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
 }
 
 .btn-save {
-  background: #e89b9b;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-save:hover {
+    background: #991B1B;
 }

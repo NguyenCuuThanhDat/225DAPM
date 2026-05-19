@@ -1,37 +1,166 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thông báo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo - Quản lý nhân khẩu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/thong-bao.css">
 </head>
 <body>
 
-<div class="main">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+        </div>
 
-  <h1 class="section-title">Thông báo</h1>
+        <div class="user-profile">
+            <div class="avatar">N</div>
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+        </div>
 
-  <div class="notification-list">
+        <ul class="nav-links">
+            <li>
+                <a href="trang-chu.html">
+                    <i class='bx bx-home-alt'></i>
+                    Trang chủ
+                </a>
+            </li>
+            <li>
+                <a href="thong-tin-ca-nhan.html">
+                    <i class='bx bx-user'></i>
+                    Thông tin cá nhân
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-group'></i>
+                    Hộ khẩu
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-file'></i>
+                    Yêu cầu của tôi
+                </a>
+            </li>
+            <li class="active">
+                <a href="thong-bao.html">
+                    <i class='bx bx-bell'></i>
+                    Thông báo
+                </a>
+            </li>
+        </ul>
 
-    <div class="notification-item">
-      <strong>Hồ sơ đăng ký tạm trú được duyệt</strong>
-      <p>12/12/2023 - 08:00</p>
-    </div>
+        <div class="logout">
+            <a href="#">
+                <i class='bx bx-log-out'></i>
+                Đăng xuất
+            </a>
+        </div>
+    </aside>
 
-    <div class="notification-item">
-      <strong>Lịch tiêm chủng mở rộng</strong>
-      <p>12/12/2023 - 08:00</p>
-    </div>
+    <main class="main-content">
+        <header class="top-header">
+            <h1>Thông báo</h1>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Tìm kiếm nhanh...">
+                </div>
+                <div class="notification">
+                    <i class='bx bx-bell'></i>
+                </div>
+                <div class="avatar-small">N</div>
+            </div>
+        </header>
 
-    <div class="notification-item">
-      <strong>Nhắc nhở đóng phí vệ sinh</strong>
-      <p>12/12/2023 - 08:00</p>
-    </div>
+        <section class="notifications-wrapper">
+            <div class="notifications-header">
+                <div class="page-title">
+                    <h2>Thông báo</h2>
+                    <p>Cập nhật thông tin và tiến độ hồ sơ của bạn.</p>
+                </div>
+                <span class="unread-badge" id="unreadBadge">2 thông báo chưa đọc</span>
+            </div>
 
-  </div>
+            <div class="notifications-layout">
+                <div class="notification-list-card">
+                    <ul class="notification-list" id="notificationList">
+                        <li class="notification-item unread" data-id="1">
+                            <div class="notif-icon success">
+                                <i class='bx bx-check-circle'></i>
+                            </div>
+                            <div class="notif-body">
+                                <h4>Hồ sơ đăng ký tạm trú được duyệt</h4>
+                                <span>15/12/2023 - 14:30</span>
+                            </div>
+                        </li>
+                        <li class="notification-item unread" data-id="2">
+                            <div class="notif-icon info">
+                                <i class='bx bx-info-circle'></i>
+                            </div>
+                            <div class="notif-body">
+                                <h4>Lịch tiêm chủng mở rộng</h4>
+                                <span>12/12/2023 - 09:00</span>
+                            </div>
+                        </li>
+                        <li class="notification-item" data-id="3">
+                            <div class="notif-icon warning">
+                                <i class='bx bx-error'></i>
+                            </div>
+                            <div class="notif-body">
+                                <h4>Nhắc nhở đóng phí vệ sinh</h4>
+                                <span>10/12/2023 - 08:00</span>
+                            </div>
+                        </li>
+                        <li class="notification-item" data-id="4">
+                            <div class="notif-icon info">
+                                <i class='bx bx-info-circle'></i>
+                            </div>
+                            <div class="notif-body">
+                                <h4>Thông báo cắt điện tạm thời</h4>
+                                <span>08/12/2023 - 10:00</span>
+                            </div>
+                        </li>
+                        <li class="notification-item" data-id="5">
+                            <div class="notif-icon success">
+                                <i class='bx bx-check-circle'></i>
+                            </div>
+                            <div class="notif-body">
+                                <h4>Kết quả xử lý hồ sơ tách hộ khẩu</h4>
+                                <span>05/12/2023 - 16:00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-</div>
+                <div class="notification-detail-card" id="notificationDetail">
+                    <div class="detail-empty" id="detailEmpty">
+                        <i class='bx bx-bell'></i>
+                        <p>Chọn một thông báo để xem chi tiết</p>
+                    </div>
+                    <div class="detail-content hidden" id="detailContent">
+                        <div class="detail-icon" id="detailIcon"></div>
+                        <h3 id="detailTitle"></h3>
+                        <span class="detail-time" id="detailTime"></span>
+                        <p class="detail-text" id="detailText"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <script src="../js/global.js"></script>
+    <script src="../js/thong-bao.js"></script>
 </body>
 </html>
