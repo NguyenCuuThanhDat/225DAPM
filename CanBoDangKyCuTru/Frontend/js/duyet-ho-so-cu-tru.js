@@ -94,7 +94,8 @@ const datasets = {
 
 const pageSize = 5;
 let currentPage = 1;
-let currentCategory = 'thuong-tru';
+const urlParams = new URLSearchParams(window.location.search);
+let currentCategory = urlParams.get('tab') || window.DEFAULT_REVIEW_TYPE || 'thuong-tru';
 
 function renderPagination(totalPages) {
     const pagination = document.getElementById('tablePagination');
@@ -298,6 +299,12 @@ navItems.forEach(item => {
 
 navSubItems.forEach(item => {
     item.addEventListener('click', event => {
+        const href = item.getAttribute('href');
+
+        if (href && href !== '#') {
+            return;
+        }
+
         event.preventDefault();
         const page = item.dataset.page;
         const subpage = item.dataset.subpage;
@@ -306,8 +313,15 @@ navSubItems.forEach(item => {
 });
 
 const navGroupToggle = document.querySelector('.nav-group-toggle');
+
 if (navGroupToggle) {
     navGroupToggle.addEventListener('click', event => {
+        const href = navGroupToggle.getAttribute('href');
+
+        if (href && href !== '#') {
+            return;
+        }
+
         event.preventDefault();
         const page = navGroupToggle.dataset.page;
         openPage(page, 'thuong-tru');
@@ -336,8 +350,16 @@ if (btnFilter) {
     });
 }
 
-openPage('home');
-updateTabCounts();
+document.addEventListener('DOMContentLoaded', () => {
+    const initialPage = window.DEFAULT_PAGE || 'duyet-ho-so';
+
+    openPage(
+        initialPage,
+        initialPage === 'duyet-ho-so' ? currentCategory : null
+    );
+
+    updateTabCounts();
+});
 
 // Detail modal logic
 const detailOverlay = document.getElementById('detailOverlay');
@@ -769,5 +791,29 @@ function initHistoryPage() {
     });
 }
 
-openPage('home');
-updateTabCounts();
+document.addEventListener('DOMContentLoaded', () => {
+    const initialPage = window.DEFAULT_PAGE || 'duyet-ho-so';
+
+    openPage(
+        initialPage,
+        initialPage === 'duyet-ho-so' ? currentCategory : null
+    );
+
+    updateTabCounts();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    openPage('duyet-ho-so');
+    renderTable(currentCategory);
+
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.tab === currentCategory);
+    });
+
+    document.querySelectorAll('.nav-subitem').forEach(item => {
+        item.classList.toggle(
+            'active',
+            item.href.includes(`tab=${currentCategory}`)
+        );
+    });
+});
