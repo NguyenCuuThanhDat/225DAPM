@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Khai báo tạm vắng - Quản lý nhân khẩu</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="../css/khai-bao-tam-vang.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <!-- Logo -->
+        <div class="sidebar-header">
+
+            <i class='bx bxs-bank'></i>
+
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+
+        </div>
+
+        <!-- User -->
+        <div class="user-profile">
+
+            <div class="avatar">
+                N
+            </div>
+
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <ul class="nav-links">
+
+            <li class="active">
+                <a href="#">
+                    <i class='bx bx-home-alt'></i>
+                    Trang chủ
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    Thông tin cá nhân
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-group'></i>
+                    Hộ khẩu
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-file'></i>
+                    Yêu cầu của tôi
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-bell'></i>
+                    Thông báo
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- Logout -->
+        <div class="logout">
+
+            <a href="#">
+                <i class='bx bx-log-out'></i>
+                Đăng xuất
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <!-- Left -->
+            <div class="header-left">
+
+                <h1>Khai báo tạm vắng</h1>
+
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+
+                    <span>Dịch vụ công</span>
+
+                    <i class='bx bx-chevron-right'></i>
+
+                    <span class="active">
+                        Khai báo tạm vắng
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="header-right">
+
+                <!-- Search -->
+                <div class="search-box">
+
+                    <i class='bx bx-search'></i>
+
+                    <input type="text" placeholder="Tìm kiếm nhanh...">
+
+                </div>
+
+                <!-- Notification -->
+                <div class="notification">
+                    <i class='bx bx-bell'></i>
+                </div>
+
+                <!-- Avatar -->
+                <div class="avatar-small">
+                    N
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Content -->
+        <section class="content-wrapper">
+
+            <!-- Page Intro -->
+            <div class="page-intro">
+
+                <h2>Khai báo tạm vắng</h2>
+
+                <p>
+                    Thông báo vắng mặt tại nơi cư trú trong một khoảng thời gian nhất định.
+                </p>
+
+            </div>
+
+            <!-- Form -->
+            <form class="absence-form">
+
+                <!-- Section 1 -->
+                <div class="form-card">
+
+                    <h3>1. Thông tin cá nhân</h3>
+
+                    <div class="form-grid">
+
+                        <!-- Họ tên -->
+                        <div class="form-group">
+
+                            <label>
+                                Họ và tên
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" placeholder="Nhập họ và tên">
+
+                        </div>
+
+                        <!-- CCCD -->
+                        <div class="form-group">
+
+                            <label>
+                                Số CCCD/CMND
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" placeholder="Nhập số thẻ căn cước">
+
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+
+                            <label>
+                                Số điện thoại
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" placeholder="Nhập số điện thoại">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Section 2 -->
+                <div class="form-card">
+
+                    <h3>2. Thông tin tạm vắng</h3>
+
+                    <div class="form-grid">
+
+                        <!-- Start Date -->
+                        <div class="form-group">
+
+                            <label>
+                                Ngày bắt đầu
+                                <span class="required">*</span>
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="date">
+
+                                <i class='bx bx-calendar'></i>
+
+                            </div>
+
+                        </div>
+
+                        <!-- End Date -->
+                        <div class="form-group">
+
+                            <label>
+                                Ngày kết thúc
+                                <span class="required">*</span>
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="date">
+
+                                <i class='bx bx-calendar'></i>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Address -->
+                        <div class="form-group full-width">
+
+                            <label>
+                                Địa điểm đến
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" placeholder="Nhập địa chỉ nơi đến tạm trú">
+
+                        </div>
+
+                        <!-- Reason -->
+                        <div class="form-group full-width">
+
+                            <label>
+                                Lý do tạm vắng
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea 
+                                rows="4"
+                                placeholder="Nhập lý do vắng mặt"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+
+                    <button type="button" class="btn btn-cancel">
+                        Hủy bỏ
+                    </button>
+
+                    <div class="action-right">
+
+                        <button type="button" class="btn btn-secondary">
+                            Lưu nháp
+                        </button>
+
+                        <button type="submit" class="btn btn-primary">
+                            Gửi khai báo
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="../js/khai-bao-tam-vang.js"></script>
+
+</body>
+</html>

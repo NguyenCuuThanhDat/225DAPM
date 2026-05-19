@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Khai tử - Quản lý nhân khẩu</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="../css/khai-tu.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <!-- Logo -->
+        <div class="sidebar-header">
+
+            <i class='bx bxs-bank'></i>
+
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+
+        </div>
+
+        <!-- User -->
+        <div class="user-profile">
+
+            <div class="avatar">
+                N
+            </div>
+
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <ul class="nav-links">
+
+            <li class="active">
+                <a href="#">
+                    <i class='bx bx-home-alt'></i>
+                    Trang chủ
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    Thông tin cá nhân
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-group'></i>
+                    Hộ khẩu
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-file'></i>
+                    Yêu cầu của tôi
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-bell'></i>
+                    Thông báo
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- Logout -->
+        <div class="logout">
+
+            <a href="#">
+                <i class='bx bx-log-out'></i>
+                Đăng xuất
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <!-- Left -->
+            <div class="header-left">
+
+                <h1>Khai tử</h1>
+
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+
+                    <span>Dịch vụ công</span>
+
+                    <i class='bx bx-chevron-right'></i>
+
+                    <span class="active">
+                        Khai tử
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="header-right">
+
+                <!-- Search -->
+                <div class="search-box">
+
+                    <i class='bx bx-search'></i>
+
+                    <input type="text" placeholder="Tìm kiếm nhanh...">
+
+                </div>
+
+                <!-- Notification -->
+                <div class="notification">
+                    <i class='bx bx-bell'></i>
+                </div>
+
+                <!-- Avatar -->
+                <div class="avatar-small">
+                    N
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Content -->
+        <section class="content-wrapper">
+
+            <!-- Intro -->
+            <div class="page-intro">
+
+                <h2>Khai tử</h2>
+
+                <p>
+                    Thực hiện thủ tục khai tử cho người đã mất.
+                </p>
+
+            </div>
+
+            <!-- Warning -->
+            <div class="warning-alert">
+
+                <i class='bx bx-error'></i>
+
+                <p>
+                    <strong>Lưu ý:</strong>
+                    Đây là thủ tục quan trọng. Vui lòng kiểm tra kỹ thông tin trước khi gửi.
+                    Người khai báo chịu hoàn toàn trách nhiệm trước pháp luật về tính chính xác của thông tin.
+                </p>
+
+            </div>
+
+            <!-- Form -->
+            <form class="death-form">
+
+                <!-- Section 1 -->
+                <div class="form-card">
+
+                    <h3>1. Thông tin người mất</h3>
+
+                    <div class="form-grid">
+
+                        <!-- Name -->
+                        <div class="form-group">
+
+                            <label>
+                                Họ và tên
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <!-- Birth -->
+                        <div class="form-group">
+
+                            <label>
+                                Ngày sinh
+                                <span class="required">*</span>
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="date">
+
+                                <i class='bx bx-calendar'></i>
+
+                            </div>
+
+                        </div>
+
+                        <!-- CCCD -->
+                        <div class="form-group">
+
+                            <label>
+                                Số CCCD/CMND
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="form-group">
+
+                            <label>
+                                Giới tính
+                                <span class="required">*</span>
+                            </label>
+
+                            <select>
+                                <option selected>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Section 2 -->
+                <div class="form-card">
+
+                    <h3>2. Thông tin khai tử</h3>
+
+                    <div class="form-grid">
+
+                        <!-- Death Date -->
+                        <div class="form-group">
+
+                            <label>
+                                Ngày mất
+                                <span class="required">*</span>
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input type="date">
+
+                                <i class='bx bx-calendar'></i>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Place -->
+                        <div class="form-group">
+
+                            <label>
+                                Nơi mất
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <!-- Cause -->
+                        <div class="form-group full-width">
+
+                            <label>
+                                Nguyên nhân tử vong
+                                <span class="required">*</span>
+                            </label>
+
+                            <select>
+                                <option selected>
+                                    Bệnh tật
+                                </option>
+
+                                <option>
+                                    Tai nạn
+                                </option>
+
+                                <option>
+                                    Tuổi già
+                                </option>
+
+                                <option>
+                                    Khác
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <!-- Detail -->
+                        <div class="form-group full-width">
+
+                            <label>
+                                Chi tiết nguyên nhân
+                            </label>
+
+                            <textarea rows="4"></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Section 3 -->
+                <div class="form-card">
+
+                    <h3>3. Tài liệu giấy tờ</h3>
+
+                    <!-- Upload Item -->
+                    <div class="upload-item">
+
+                        <label>
+                            Giấy báo tử / Giấy chứng tử
+                            <span class="required">*</span>
+                        </label>
+
+                        <div class="upload-box">
+
+                            <i class='bx bx-cloud-upload'></i>
+
+                            <p>
+                                <span class="highlight">
+                                    Nhấn để tải lên
+                                </span>
+
+                                hoặc kéo thả tệp vào đây
+                            </p>
+
+                            <span class="sub-text">
+                                Hỗ trợ: PDF, JPG, PNG (Tối đa 5MB)
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Upload Item -->
+                    <div class="upload-item">
+
+                        <label>
+                            Giấy tờ khác (nếu có)
+                        </label>
+
+                        <div class="upload-box">
+
+                            <i class='bx bx-cloud-upload'></i>
+
+                            <p>
+                                <span class="highlight">
+                                    Nhấn để tải lên
+                                </span>
+
+                                hoặc kéo thả tệp vào đây
+                            </p>
+
+                            <span class="sub-text">
+                                Hỗ trợ: PDF, JPG, PNG (Tối đa 5MB)
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Section 4 -->
+                <div class="form-card">
+
+                    <h3>4. Người khai báo</h3>
+
+                    <div class="form-grid">
+
+                        <!-- Reporter -->
+                        <div class="form-group">
+
+                            <label>
+                                Họ tên người khai
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <!-- Relationship -->
+                        <div class="form-group">
+
+                            <label>
+                                Quan hệ với người mất
+                                <span class="required">*</span>
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    Vợ/Chồng
+                                </option>
+
+                                <option>
+                                    Con
+                                </option>
+
+                                <option>
+                                    Anh/Chị/Em
+                                </option>
+
+                                <option>
+                                    Người thân khác
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+
+                            <label>
+                                Số điện thoại
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+
+                    <button type="button" class="btn btn-cancel">
+                        Hủy bỏ
+                    </button>
+
+                    <button type="submit" class="btn btn-primary">
+                        Gửi khai báo
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="../js/khai-tu.js"></script>
+
+</body>
+</html>
