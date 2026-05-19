@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý hồ sơ cư trú - Cán bộ đăng ký cư trú</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/duyet-ho-so-cu-tru.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-icon"><i class='bx bxs-shield'></i></div>
+            <div>
+                <h2>HỆ THỐNG QUẢN LÝ</h2>
+                <p>NHÂN KHẨU, HỘ GIA ĐÌNH</p>
+                <span>UBND PHƯỜNG HÒA CƯỜNG NAM</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="home"><i class='bx bx-home-alt'></i> Trang chủ</a>
+            <a href="#" class="nav-item" data-page="view-citizen-records"><i class='bx bx-user'></i> Xem hồ sơ công dân</a>
+
+            <div class="nav-group">
+                <a href="#" class="nav-item nav-group-toggle" data-page="duyet-ho-so">
+                    <i class='bx bx-folder-open'></i>
+                    Duyệt hồ sơ cư trú
+                    <i class='bx bx-chevron-down chevron'></i>
+                </a>
+                <div class="submenu">
+                    <a href="#" class="nav-subitem" data-page="duyet-ho-so" data-subpage="thuong-tru"><i class='bx bx-radio-circle'></i> Thường trú</a>
+                    <a href="#" class="nav-subitem" data-page="duyet-ho-so" data-subpage="tam-tru"><i class='bx bx-radio-circle'></i> Tạm trú</a>
+                    <a href="#" class="nav-subitem" data-page="duyet-ho-so" data-subpage="tam-vang"><i class='bx bx-radio-circle'></i> Tạm vắng</a>
+                </div>
+            </div>
+
+            <a href="#" class="nav-item" data-page="history"><i class='bx bx-calendar-check'></i> Lịch sử duyệt hồ sơ</a>
+            <a href="#" class="nav-item" data-page="notifications"><i class='bx bx-bell'></i> Thông báo</a>
+            <a href="#" class="nav-item" data-page="reports"><i class='bx bx-chart'></i> Báo cáo thống kê</a>
+            <a href="#" class="nav-item" data-page="settings"><i class='bx bx-cog'></i> Cài đặt</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="profile">
+                <div class="avatar"><i class='bx bx-user-circle'></i></div>
+                <div>
+                    <span class="name">Nguyễn Văn A</span>
+                    <span class="role">Cán bộ đăng ký cư trú</span>
+                </div>
+            </div>
+            <button class="btn-logout"><i class='bx bx-log-out'></i> Đăng xuất</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-topbar">
+            <div>
+                <h1 id="page-title">Trang chủ</h1>
+                <p id="page-subtitle">Chọn một mục bên trái để tiếp tục.</p>
+            </div>
+            <button class="btn-refresh"><i class='bx bx-refresh'></i> Làm mới</button>
+        </header>
+
+        <section class="page-section page-home">
+            <div class="card card-overview placeholder-card">
+                <p class="placeholder-text">Chọn mục bên trái để tiếp tục.</p>
+            </div>
+        </section>
+
+        <section class="page-section page-review hidden">
+            <div class="card card-overview">
+                <div class="tabs">
+                    <button class="tab active" data-tab="thuong-tru">Thường trú <span>12</span></button>
+                    <button class="tab" data-tab="tam-tru">Tạm trú <span>5</span></button>
+                    <button class="tab" data-tab="tam-vang">Tạm vắng <span>2</span></button>
+                </div>
+
+                <div class="filter-row">
+                    <div class="field search-field">
+                        <label>Tìm kiếm</label>
+                        <div class="input-icon">
+                            <i class='bx bx-search'></i>
+                            <input type="text" placeholder="Tìm kiếm theo mã hồ sơ, họ tên, CCCD...">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Trạng thái</label>
+                        <select>
+                            <option>Tất cả</option>
+                            <option>Chờ duyệt</option>
+                            <option>Chờ bổ sung</option>
+                            <option>Đã duyệt</option>
+                            <option>Từ chối</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Thời gian nộp</label>
+                        <select>
+                            <option>Tất cả</option>
+                            <option>Hôm nay</option>
+                            <option>7 ngày</option>
+                            <option>30 ngày</option>
+                        </select>
+                    </div>
+                    <div class="field date-field">
+                        <label>Từ ngày</label>
+                        <input type="date">
+                    </div>
+                    <div class="field date-field">
+                        <label>Đến ngày</label>
+                        <input type="date">
+                    </div>
+                    <button class="btn btn-filter">Lọc</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã hồ sơ</th>
+                                <th>Công dân</th>
+                                <th>CCCD</th>
+                                <th>Loại hồ sơ</th>
+                                <th>Ngày nộp</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordsBody">
+                            <!-- Rows will be rendered by JS per selected tab -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <div class="table-summary" id="recordSummary">Hiển thị 0 của 0 hồ sơ</div>
+                    <div class="pagination" id="tablePagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail modal -->
+        <div class="modal-overlay hidden" id="detailOverlay"></div>
+        <div class="detail-modal hidden" id="detailModal" role="dialog" aria-modal="true">
+            <header class="modal-header modal-header-top">
+                <div class="modal-left">
+                    <div class="meta-line">
+                        <span class="meta-label">Mã hồ sơ:</span>
+                        <strong id="dtIdSmall">-</strong>
+                        <span class="status-badge" id="dtStatusBadge">Chờ duyệt</span>
+                    </div>
+                    <div class="meta-line">
+                        <span class="meta-label">Loại hồ sơ:</span>
+                        <strong id="modalType">Thường trú</strong>
+                        <span style="margin-left:16px" class="meta-label">Ngày nộp:</span>
+                        <span id="dtSubmitSmall">-</span>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <button class="modal-close" id="modalClose"><i class='bx bx-x'></i></button>
+                </div>
+            </header>
+
+            <nav class="modal-tabs" role="tablist">
+                <button class="tab-btn active" data-tab="tab-general">Thông tin chung</button>
+                <button class="tab-btn" data-tab="tab-files">Giấy tờ đính kèm</button>
+                <button class="tab-btn" data-tab="tab-note">Ghi chú</button>
+            </nav>
+
+            <div class="modal-body">
+                <section id="tab-general" class="tab-panel">
+                    <div class="panel-grid">
+                        <div class="panel-card">
+                            <h4>Thông tin công dân</h4>
+                            <div class="form-row"><label>Họ và tên</label><div id="dtName">-</div></div>
+                            <div class="form-row"><label>Ngày sinh</label><div id="dtDob">-</div></div>
+                            <div class="form-row"><label>CCCD</label><div id="dtCccd">-</div></div>
+                            <div class="form-row"><label>Số điện thoại</label><div id="dtPhone">-</div></div>
+                            <div class="form-row"><label>Email</label><div id="dtEmail">-</div></div>
+                            <div class="form-row"><label>Địa chỉ hiện tại</label><div id="dtCurrentAddress">-</div></div>
+                        </div>
+
+                        <div class="panel-card">
+                            <h4 id="dtRegistrationTitle">Thông tin đăng ký</h4>
+                            <div class="form-row"><label id="dtRegLabel1">Địa chỉ</label><div id="dtRegValue1">-</div></div>
+                            <div class="form-row"><label id="dtRegLabel2">Hộ gia đình</label><div id="dtRegValue2">-</div></div>
+                            <div class="form-row"><label id="dtRegLabel3">Quan hệ với chủ hộ</label><div id="dtRegValue3">-</div></div>
+                            <div class="form-row"><label id="dtRegLabel4">Ngày chuyển đến</label><div id="dtRegValue4">-</div></div>
+                            <div class="form-row"><label id="dtRegLabel5"></label><div id="dtRegValue5">-</div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tab-files" class="tab-panel hidden">
+                    <div class="panel-card">
+                        <h4>Giấy tờ đính kèm</h4>
+                        <ul id="dtFiles"><li>Chưa có tập tin.</li></ul>
+                    </div>
+                </section>
+
+                <section id="tab-note" class="tab-panel hidden">
+                    <div class="panel-card">
+                        <h4>Ghi chú</h4>
+                        <textarea id="dtNote" class="note-textarea" placeholder="Nhập ghi chú..."></textarea>
+                        <div id="noteError" class="note-error hidden">Ghi chú không được để trống.</div>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="modal-footer">
+                <button class="btn btn-warning">Yêu cầu bổ sung</button>
+                <button class="btn btn-danger">Từ chối</button>
+                <button class="btn btn-primary">Duyệt hồ sơ</button>
+            </footer>
+        </div>
+
+        <section class="page-section page-history hidden">
+            <div class="history-card">
+                <div class="history-topbar">
+                    <div class="history-search">
+                        <div class="input-icon search-input">
+                            <i class='bx bx-search'></i>
+                            <input id="historySearch" type="text" placeholder="Tìm kiếm theo mã hồ sơ, tên công dân, CCCD...">
+                        </div>
+                    </div>
+                    <div class="history-actions">
+                        <button id="historyToggleFilters" class="btn btn-secondary"><i class='bx bx-filter-alt'></i> Bộ lọc</button>
+                        <button id="historyExport" class="btn btn-success"><i class='bx bx-download'></i> Xuất Excel</button>
+                    </div>
+                </div>
+
+                <div class="history-filter-row hidden" id="historyFilterRow">
+                    <div class="field">
+                        <label>Loại hồ sơ</label>
+                        <select id="filterType">
+                            <option value="all">Tất cả</option>
+                            <option value="thuong-tru">Thường trú</option>
+                            <option value="tam-tru">Tạm trú</option>
+                            <option value="tam-vang">Tạm vắng</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Trạng thái</label>
+                        <select id="filterStatus">
+                            <option value="all">Tất cả</option>
+                            <option value="Đã duyệt">Đã duyệt</option>
+                            <option value="Từ chối">Từ chối</option>
+                            <option value="Yêu cầu bổ sung">Yêu cầu bổ sung</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Mã hồ sơ</th>
+                                <th>Loại</th>
+                                <th>Công dân</th>
+                                <th>CCCD</th>
+                                <th>Ngày tiếp nhận</th>
+                                <th>Ngày xét duyệt</th>
+                                <th>Cán bộ xử lý</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyRecordsBody"></tbody>
+                    </table>
+                </div>
+                <div class="table-footer history-footer">
+                    <div class="table-summary" id="historySummary">Hiển thị 0 của 0 hồ sơ</div>
+                    <div class="pagination" id="historyPagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Detail Panel -->
+        <div class="history-detail-overlay hidden" id="historyDetailOverlay"></div>
+        <aside class="history-detail-panel hidden" id="historyDetailPanel">
+            <div class="history-detail-header">
+                <div>
+                    <h3 id="historyDetailTitle">Lịch sử xử lý hồ sơ</h3>
+                    <p class="history-detail-subtitle">Xem chi tiết quá trình xử lý hồ sơ.</p>
+                </div>
+                <button class="icon-btn history-detail-close" id="historyDetailClose"><i class='bx bx-x'></i></button>
+            </div>
+
+            <div class="history-detail-tabs">
+                <button class="history-tab-btn active" data-tab="historyTabTimeline">Lịch sử xử lý</button>
+                <button class="history-tab-btn" data-tab="historyTabInfo">Thông tin hồ sơ</button>
+                <button class="history-tab-btn" data-tab="historyTabFiles">Giấy tờ đính kèm</button>
+            </div>
+
+            <div class="history-detail-body">
+                <section id="historyTabTimeline" class="history-tab-panel">
+                    <div class="history-timeline" id="historyTimeline"></div>
+                    <div class="panel-card history-note-card">
+                        <h4>Ghi chú xử lý</h4>
+                        <div class="timeline-note" id="historyNoteItem">Không có ghi chú bổ sung.</div>
+                    </div>
+                </section>
+                <section id="historyTabInfo" class="history-tab-panel hidden">
+                    <div class="panel-card history-info-card">
+                        <h4>Thông tin hồ sơ</h4>
+                        <div class="form-row"><label>Mã hồ sơ</label><div id="historyInfoId">-</div></div>
+                        <div class="form-row"><label>Loại hồ sơ</label><div id="historyInfoType">-</div></div>
+                        <div class="form-row"><label>Công dân</label><div id="historyInfoCitizen">-</div></div>
+                        <div class="form-row"><label>CCCD</label><div id="historyInfoCccd">-</div></div>
+                        <div class="form-row"><label>Ngày tiếp nhận</label><div id="historyInfoReceived">-</div></div>
+                        <div class="form-row"><label>Ngày xét duyệt</label><div id="historyInfoProcessed">-</div></div>
+                        <div class="form-row"><label>Cán bộ xử lý</label><div id="historyInfoOfficer">-</div></div>
+                        <div class="form-row"><label>Trạng thái</label><div id="historyInfoStatus">-</div></div>
+                    </div>
+                </section>
+                <section id="historyTabFiles" class="history-tab-panel hidden">
+                    <div class="panel-card">
+                        <h4>Giấy tờ đính kèm</h4>
+                        <ul id="historyFilesList" class="history-files-list"></ul>
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <section class="page-section page-placeholder hidden">
+            <div class="card card-overview placeholder-card">
+                <p class="placeholder-text">Chưa có giao diện.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/history-data.js"></script>
+    <script src="../js/duyet-ho-so-cu-tru.js"></script>
+</body>
+</html>
