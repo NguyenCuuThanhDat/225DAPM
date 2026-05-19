@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/xac-nhan-ho-so-khai-sinh.css">
-    <link rel="stylesheet" href="../css/xac-nhan-ho-so-khai-tu.css">
-    <link rel="stylesheet" href="../css/xem-ho-so-ho-gia-dinh.css">
 </head>
 <body>
     <div class="container-main">
@@ -31,17 +29,17 @@
                     <span>Tổng quan</span>
                 </a>
 
-                <a href="#" class="nav-item active" data-page="khai-sinh">
+                <a href="./xac-nhan-ho-so-khai-sinh.html" class="nav-item active">
                     <span class="nav-icon"><i class="fa-solid fa-baby"></i></span>
                     <span>Xác nhận hồ sơ khai sinh</span>
                 </a>
 
-                <a href="#" class="nav-item" data-page="khai-tu">
+                <a href="./xac-nhan-ho-so-khai-tu.html" class="nav-item">
                     <span class="nav-icon"><i class="fa-solid fa-file-circle-xmark"></i></span>
                     <span>Xác nhận hồ sơ khai tử</span>
                 </a>
 
-                <a href="#" class="nav-item" data-page="xem-ho">
+                <a href="./xem-ho-so-ho-gia-dinh.html" class="nav-item">
                     <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
                     <span>Xem hồ sơ hộ gia đình</span>
                 </a>
@@ -96,8 +94,11 @@
     </div>
 
     <script src="../js/xac-nhan-ho-so-khai-sinh.js"></script>
-    <script src="../js/xac-nhan-ho-so-khai-tu.js"></script>
-    <script src="../js/xem-ho-so-ho-gia-dinh.js"></script>
-    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('pageContent').innerHTML = renderKhaiSinhContent();
+            initKhaiSinhEvents();
+        });
+    </script>
 </body>
 </html>
