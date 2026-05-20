@@ -3,95 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xem hồ sơ hộ gia đình</title>
-    <link rel="stylesheet" href="../css/layout-cbubpx.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <title>Xem hồ sơ hộ gia đình | Cán bộ UBND</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/style-common.css">
     <link rel="stylesheet" href="../css/xem-ho-so-ho-gia-dinh.css">
 </head>
 <body>
-    <div class="container-main">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <div style="width: 40px; height: 40px; background: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #A6302B;">S</div>
-                    <div class="logo-text">
-                        <div class="logo-title">Hệ thống Quản lý</div>
-                        <div class="logo-subtitle">Hộ tịch & Nhân khẩu</div>
-                    </div>
-                </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div class="sidebar-title">
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
             </div>
-
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item" data-page="dashboard">
-                    <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
-                    <span>Tổng quan</span>
-                </a>
-
-                <a href="./xac-nhan-ho-so-khai-sinh.html" class="nav-item">
-                    <span class="nav-icon"><i class="fa-solid fa-baby"></i></span>
-                    <span>Xác nhận hồ sơ khai sinh</span>
-                </a>
-
-                <a href="./xac-nhan-ho-so-khai-tu.html" class="nav-item">
-                    <span class="nav-icon"><i class="fa-solid fa-file-circle-xmark"></i></span>
-                    <span>Xác nhận hồ sơ khai tử</span>
-                </a>
-
-                <a href="./xem-ho-so-ho-gia-dinh.html" class="nav-item active">
-                    <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
-                    <span>Xem hồ sơ hộ gia đình</span>
-                </a>
-
-                <a href="#" class="nav-item" data-page="tach-ho">
-                    <span class="nav-icon"><i class="fa-solid fa-user-minus"></i></span>
-                    <span>Xác nhận tách hộ</span>
-                </a>
-
-                <a href="#" class="nav-item" data-page="nhap-ho">
-                    <span class="nav-icon"><i class="fa-solid fa-user-plus"></i></span>
-                    <span>Xác nhận nhập hộ</span>
-                </a>
-
-                <a href="#" class="nav-item" data-page="doi-chu-ho">
-                    <span class="nav-icon"><i class="fa-solid fa-user-gear"></i></span>
-                    <span>Xác nhận thay đổi chủ hộ</span>
-                </a>
-
-                <a href="#" class="nav-item" data-page="chuyen-ho-khau">
-                    <span class="nav-icon"><i class="fa-solid fa-location-dot"></i></span>
-                    <span>Xác nhận chuyển hộ khẩu</span>
-                </a>
-
-                <a href="#" class="nav-item" data-page="bao-cao">
-                    <span class="nav-icon"><i class="fa-solid fa-chart-column"></i></span>
-                    <span>Lập báo cáo thống kê</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <a href="#" class="nav-item" data-page="logout">
-                    <span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-                    <span>Đăng xuất</span>
-                </a>
+        </div>
+        <div class="user-info">
+            <div class="avatar">TB</div>
+            <div class="user-detail">
+                <h4>Trần Thị B</h4>
+                <span class="role">Cán bộ UBND</span>
             </div>
-        </aside>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="xem-ho-so-ho-gia-dinh.html" class="nav-item active">
+                <i class='bx bx-group'></i><span>Xem hồ sơ hộ gia đình</span>
+            </a>
+            <a href="xac-nhan-ho-so-khai-sinh.html" class="nav-item">
+                <i class='bx bx-baby-carriage'></i><span>Xác nhận hồ sơ khai sinh</span>
+            </a>
+            <a href="xac-nhan-ho-so-khai-tu.html" class="nav-item">
+                <i class='bx bx-book-heart'></i><span>Xác nhận hồ sơ khai tử</span>
+            </a>
+            <a href="xac-nhan-tach-ho.html" class="nav-item">
+                <i class='bx bx-cut'></i><span>Xác nhận tách hộ</span>
+            </a>
+            <a href="xac-nhan-nhap-ho.html" class="nav-item">
+                <i class='bx bx-merge'></i><span>Xác nhận nhập hộ</span>
+            </a>
+            <a href="xac-nhan-thay-doi-chu-ho.html" class="nav-item">
+                <i class='bx bx-user-plus'></i><span>Thay đổi chủ hộ</span>
+            </a>
+            <a href="xac-nhan-chuyen-ho-khau.html" class="nav-item">
+                <i class='bx bx-move'></i><span>Chuyển hộ khẩu</span>
+            </a>
+            <a href="lap-bao-cao-thong-ke.html" class="nav-item">
+                <i class='bx bx-bar-chart-alt-2'></i><span>Báo cáo thống kê</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="logout"><i class='bx bx-log-out'></i> Đăng xuất</a>
+        </div>
+    </aside>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <h1>Công thông tin Căn bộ Ủy ban Phường/Xã</h1>
-                <div class="user-info">
-                    <span>Nguyễn Văn Căn Bộ · Phường Bến Nghé, Quận 1</span>
-                </div>
-            </header>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <header class="top-bar">
+            <h1>Xem hồ sơ hộ gia đình</h1>
+            <div class="header-actions">
+                <div class="notification"><i class='bx bx-bell'></i></div>
+                <div class="avatar-small">TB</div>
+            </div>
+        </header>
 
-            <!-- Content Container -->
+        <div class="content">
             <div id="pageContent" class="content-container"></div>
         </div>
-    </div>
+    </main>
 
     <script src="../js/xem-ho-so-ho-gia-dinh.js"></script>
     <script>
