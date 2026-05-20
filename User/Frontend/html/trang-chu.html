@@ -44,35 +44,35 @@
         <ul class="nav-links">
 
             <li class="active">
-                <a href="#">
+                <a href="trang-chu.html">
                     <i class='bx bx-home-alt'></i>
                     Trang chủ
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="thong-tin-ca-nhan.html">
                     <i class='bx bx-user'></i>
                     Thông tin cá nhân
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="ho-khau.html">
                     <i class='bx bx-group'></i>
                     Hộ khẩu
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="yeu-cau-cua-toi.html">
                     <i class='bx bx-file'></i>
                     Yêu cầu của tôi
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="thong-bao.html">
                     <i class='bx bx-bell'></i>
                     Thông báo
                 </a>
@@ -107,9 +107,9 @@
                 </div>
 
                 <!-- Notification -->
-                <div class="notification">
+                <a href="thong-bao.html" class="notification" title="Thông báo">
                     <i class='bx bx-bell'></i>
-                </div>
+                </a>
 
                 <!-- Avatar -->
                 <div class="avatar-small">
@@ -217,46 +217,20 @@
                     <div class="services-grid">
 
                         <!-- Service Item -->
-                        <div class="service-card">
+                        <button type="button" class="service-card" id="btnHoTich" aria-haspopup="dialog">
 
                             <div class="service-icon">
-                                <i class='bx bx-file'></i>
+                                <i class='bx bx-file-plus'></i>
                             </div>
 
-                            <h4>Đăng ký thường trú</h4>
+                            <h4>Đăng ký hộ tịch</h4>
 
-                            <p>Nộp hồ sơ trực tuyến</p>
+                            <p>Thường trú, tạm trú, tạm vắng</p>
 
-                        </div>
-
-                        <!-- Service Item -->
-                        <div class="service-card">
-
-                            <div class="service-icon">
-                                <i class='bx bx-file-blank'></i>
-                            </div>
-
-                            <h4>Đăng ký tạm trú</h4>
-
-                            <p>Đăng ký tạm trú mới</p>
-
-                        </div>
+                        </button>
 
                         <!-- Service Item -->
-                        <div class="service-card">
-
-                            <div class="service-icon">
-                                <i class='bx bx-user-x'></i>
-                            </div>
-
-                            <h4>Khai báo tạm vắng</h4>
-
-                            <p>Thông báo vắng mặt</p>
-
-                        </div>
-
-                        <!-- Service Item -->
-                        <div class="service-card">
+                        <a href="khai-bao-nhan-khau.html" class="service-card">
 
                             <div class="service-icon">
                                 <i class='bx bx-group'></i>
@@ -266,10 +240,10 @@
 
                             <p>Thêm thành viên mới</p>
 
-                        </div>
+                        </a>
 
                         <!-- Service Item -->
-                        <div class="service-card">
+                        <a href="khai-tu.html" class="service-card">
 
                             <div class="service-icon">
                                 <i class='bx bx-file-find'></i>
@@ -279,7 +253,7 @@
 
                             <p>Thủ tục báo tử</p>
 
-                        </div>
+                        </a>
 
                         <!-- Service Item -->
                         <div class="service-card">
@@ -355,7 +329,7 @@
 
                     <!-- View All -->
                     <div class="view-all">
-                        <a href="#">
+                        <a href="thong-bao.html">
                             Xem tất cả
                             <i class='bx bx-right-arrow-alt'></i>
                         </a>
@@ -368,6 +342,49 @@
         </section>
 
     </main>
+    <!-- Modal: Đăng ký hộ tịch -->
+    <div class="modal-overlay hidden" id="hoTichModal" role="dialog" aria-modal="true" aria-labelledby="hoTichModalTitle">
+        <div class="modal-board">
+            <button type="button" class="modal-close" id="closeHoTichModal" aria-label="Đóng">
+                <i class='bx bx-x'></i>
+            </button>
+            <h2 id="hoTichModalTitle">Đăng ký hộ tịch</h2>
+            <p class="modal-subtitle">Chọn loại thủ tục bạn muốn thực hiện</p>
+            <div class="modal-options">
+                <a href="khai-bao-thuong-tru.html" class="modal-option">
+                    <div class="modal-option-icon red">
+                        <i class='bx bx-file'></i>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong>Đăng ký thường trú</strong>
+                        <span>Khai báo nơi cư trú lâu dài</span>
+                    </div>
+                    <i class='bx bx-chevron-right modal-option-arrow'></i>
+                </a>
+                <a href="khai-bao-tam-tru.html" class="modal-option">
+                    <div class="modal-option-icon blue">
+                        <i class='bx bx-home'></i>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong>Đăng ký tạm trú</strong>
+                        <span>Khai báo nơi tạm trú có thời hạn</span>
+                    </div>
+                    <i class='bx bx-chevron-right modal-option-arrow'></i>
+                </a>
+                <a href="khai-bao-tam-vang.html" class="modal-option">
+                    <div class="modal-option-icon orange">
+                        <i class='bx bx-user-x'></i>
+                    </div>
+                    <div class="modal-option-text">
+                        <strong>Khai báo tạm vắng</strong>
+                        <span>Thông báo vắng mặt tại nơi cư trú</span>
+                    </div>
+                    <i class='bx bx-chevron-right modal-option-arrow'></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/global.js"></script>
     <script src="../js/dashboard.js"></script>
 

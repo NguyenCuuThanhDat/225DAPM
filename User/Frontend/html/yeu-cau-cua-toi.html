@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu cầu của tôi - Quản lý nhân khẩu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/yeu-cau-cua-toi.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+        </div>
+
+        <div class="user-profile">
+            <div class="avatar">N</div>
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="trang-chu.html">
+                    <i class='bx bx-home-alt'></i>
+                    Trang chủ
+                </a>
+            </li>
+            <li>
+                <a href="thong-tin-ca-nhan.html">
+                    <i class='bx bx-user'></i>
+                    Thông tin cá nhân
+                </a>
+            </li>
+            <li>
+                <a href="ho-khau.html">
+                    <i class='bx bx-group'></i>
+                    Hộ khẩu
+                </a>
+            </li>
+            <li class="active">
+                <a href="yeu-cau-cua-toi.html">
+                    <i class='bx bx-file'></i>
+                    Yêu cầu của tôi
+                </a>
+            </li>
+            <li>
+                <a href="thong-bao.html">
+                    <i class='bx bx-bell'></i>
+                    Thông báo
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout">
+            <a href="#">
+                <i class='bx bx-log-out'></i>
+                Đăng xuất
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <h1>Yêu cầu của tôi</h1>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" id="quickSearch" placeholder="Tìm kiếm nhanh...">
+                </div>
+                <a href="thong-bao.html" class="notification" title="Thông báo">
+                    <i class='bx bx-bell'></i>
+                </a>
+                <div class="avatar-small">N</div>
+            </div>
+        </header>
+
+        <section class="requests-wrapper">
+            <div class="page-intro">
+                <h2>Yêu cầu của tôi</h2>
+                <p>Theo dõi trạng thái và tiến độ xử lý các hồ sơ bạn đã nộp.</p>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon gray">
+                        <i class='bx bx-file'></i>
+                    </div>
+                    <div class="summary-content">
+                        <p>Tổng hồ sơ</p>
+                        <h3 id="countTotal">8</h3>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon orange">
+                        <i class='bx bx-time-five'></i>
+                    </div>
+                    <div class="summary-content">
+                        <p class="text-orange">Đang xử lý</p>
+                        <h3 class="text-orange" id="countProcessing">2</h3>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon green">
+                        <i class='bx bx-check-circle'></i>
+                    </div>
+                    <div class="summary-content">
+                        <p class="text-green">Đã duyệt</p>
+                        <h3 class="text-green" id="countApproved">5</h3>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon red">
+                        <i class='bx bx-x-circle'></i>
+                    </div>
+                    <div class="summary-content">
+                        <p class="text-red">Từ chối</p>
+                        <h3 class="text-red" id="countRejected">1</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-tabs" id="filterTabs">
+                <button type="button" class="filter-tab active" data-filter="all">Tất cả</button>
+                <button type="button" class="filter-tab" data-filter="processing">Đang xử lý</button>
+                <button type="button" class="filter-tab" data-filter="approved">Đã duyệt</button>
+                <button type="button" class="filter-tab" data-filter="rejected">Từ chối</button>
+            </div>
+
+            <div class="requests-list" id="requestsList"></div>
+        </section>
+    </main>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/yeu-cau-cua-toi.js"></script>
+</body>
+</html>

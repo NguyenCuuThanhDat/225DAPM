@@ -49,35 +49,35 @@
         <ul class="nav-links">
 
             <li class="active">
-                <a href="#">
+                <a href="trang-chu.html">
                     <i class='bx bx-home-alt'></i>
                     Trang chủ
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="thong-tin-ca-nhan.html">
                     <i class='bx bx-user'></i>
                     Thông tin cá nhân
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="ho-khau.html">
                     <i class='bx bx-group'></i>
                     Hộ khẩu
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="yeu-cau-cua-toi.html">
                     <i class='bx bx-file'></i>
                     Yêu cầu của tôi
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="thong-bao.html">
                     <i class='bx bx-bell'></i>
                     Thông báo
                 </a>
@@ -136,9 +136,9 @@
                 </div>
 
                 <!-- Notification -->
-                <div class="notification">
+                <a href="thong-bao.html" class="notification" title="Thông báo">
                     <i class='bx bx-bell'></i>
-                </div>
+                </a>
 
                 <!-- Avatar -->
                 <div class="avatar-small">
@@ -164,49 +164,33 @@
             </div>
 
             <!-- Stepper -->
-            <div class="stepper">
+            <div class="stepper" id="formStepper">
 
-                <!-- Step -->
-                <div class="step active">
-
-                    <div class="step-circle">
-                        1
-                    </div>
-
-                    <span>Nhập thông tin</span>
-
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <span class="step-label">Nhập thông tin</span>
                 </div>
 
-                <div class="step-line active"></div>
+                <div class="step-line" id="stepLine1"></div>
 
-                <!-- Step -->
-                <div class="step">
-
-                    <div class="step-circle">
-                        2
-                    </div>
-
-                    <span>Tải lên giấy tờ</span>
-
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Tải lên giấy tờ</span>
                 </div>
 
-                <div class="step-line"></div>
+                <div class="step-line" id="stepLine2"></div>
 
-                <!-- Step -->
-                <div class="step">
-
-                    <div class="step-circle">
-                        3
-                    </div>
-
-                    <span>Xác nhận & Gửi</span>
-
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Xác nhận &amp; Gửi</span>
                 </div>
 
             </div>
 
             <!-- Form -->
-            <form class="resident-form">
+            <form class="resident-form" id="thuongTruForm">
+
+                <div id="step1Panel">
 
                 <!-- Section 1 -->
                 <div class="form-card">
@@ -223,7 +207,7 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <input type="text">
+                            <input type="text" name="fullName" placeholder="Nhập họ và tên" required>
 
                         </div>
 
@@ -237,7 +221,7 @@
 
                             <div class="input-icon">
 
-                                <input type="date">
+                                <input type="date" name="birthDate" required>
 
                                 <i class='bx bx-calendar'></i>
 
@@ -253,7 +237,7 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <input type="text">
+                            <input type="text" name="cccd" placeholder="Nhập số thẻ căn cước" required>
 
                         </div>
 
@@ -265,7 +249,7 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <input type="text">
+                            <input type="tel" name="phone" placeholder="Nhập số điện thoại" required>
 
                         </div>
 
@@ -288,10 +272,7 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <input 
-                                type="text"
-                                value="Da Nang, Viet Nam"
-                            >
+                            <input type="text" name="address" placeholder="Số nhà, tên đường..." required>
 
                         </div>
 
@@ -303,16 +284,11 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <select>
-                                <option selected>
-                                    Quận 1
-                                </option>
-                                <option>
-                                    Quận 2
-                                </option>
-                                <option>
-                                    Quận 3
-                                </option>
+                            <select name="district" required>
+                                <option value="">Chọn Quận/Huyện</option>
+                                <option value="quan-1" selected>Quận 1</option>
+                                <option value="quan-2">Quận 2</option>
+                                <option value="quan-3">Quận 3</option>
                             </select>
 
                         </div>
@@ -325,16 +301,11 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <select>
-                                <option selected>
-                                    Phường 1
-                                </option>
-                                <option>
-                                    Phường 2
-                                </option>
-                                <option>
-                                    Phường 3
-                                </option>
+                            <select name="ward" required>
+                                <option value="">Chọn Phường/Xã</option>
+                                <option value="phuong-1" selected>Phường 1</option>
+                                <option value="phuong-2">Phường 2</option>
+                                <option value="phuong-3">Phường 3</option>
                             </select>
 
                         </div>
@@ -358,10 +329,7 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <input 
-                                type="text"
-                                value="t"
-                            >
+                            <input type="text" name="householdHead" placeholder="Nhập họ tên chủ hộ" required>
 
                         </div>
 
@@ -373,19 +341,12 @@
                                 <span class="required">*</span>
                             </label>
 
-                            <select>
-                                <option selected>
-                                    Bố/Mẹ
-                                </option>
-                                <option>
-                                    Con
-                                </option>
-                                <option>
-                                    Anh/Chị
-                                </option>
-                                <option>
-                                    Khác
-                                </option>
+                            <select name="relationship" required>
+                                <option value="">Chọn quan hệ</option>
+                                <option value="bo-me" selected>Bố/Mẹ</option>
+                                <option value="con">Con</option>
+                                <option value="anh-chi">Anh/Chị</option>
+                                <option value="khac">Khác</option>
                             </select>
 
                         </div>
@@ -394,20 +355,74 @@
 
                 </div>
 
+                </div>
+
+                <!-- Step 2: Upload documents -->
+                <div id="step2Panel" class="hidden">
+                    <div class="form-card">
+                        <h3>4. Tải lên giấy tờ đính kèm</h3>
+                        <p class="upload-intro">Vui lòng tải lên bản chụp/scan rõ nét các giấy tờ sau.</p>
+
+                        <div class="upload-item">
+                            <label>Bản sao CCCD/CMND <span class="required">*</span></label>
+                            <div class="upload-box" data-upload="cccd">
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                <i class='bx bx-cloud-upload'></i>
+                                <p><span class="highlight">Nhấn để tải lên</span> hoặc kéo thả file vào đây</p>
+                                <span class="sub-text">Hỗ trợ: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+                        <div class="upload-item">
+                            <label>Giấy tờ chứng minh chỗ ở hợp pháp <span class="required">*</span></label>
+                            <div class="upload-box" data-upload="residence">
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                <i class='bx bx-cloud-upload'></i>
+                                <p><span class="highlight">Nhấn để tải lên</span> hoặc kéo thả file vào đây</p>
+                                <span class="sub-text">Hỗ trợ: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+
+                        <div class="upload-item">
+                            <label>Giấy tờ khác (nếu có)</label>
+                            <div class="upload-box" data-upload="other">
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                <i class='bx bx-cloud-upload'></i>
+                                <p><span class="highlight">Nhấn để tải lên</span> hoặc kéo thả file vào đây</p>
+                                <span class="sub-text">Hỗ trợ: PDF, JPG, PNG (Tối đa 5MB)</span>
+                                <span class="file-name"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirm -->
+                <div id="step3Panel" class="hidden">
+                    <div class="form-card confirm-panel">
+                        <h3>Xác nhận thông tin</h3>
+                        <p class="confirm-intro">Vui lòng kiểm tra lại thông tin trước khi gửi hồ sơ.</p>
+                        <div class="confirm-summary" id="confirmSummary"></div>
+                    </div>
+                </div>
+
                 <!-- Actions -->
                 <div class="form-actions">
 
-                    <button type="button" class="btn btn-cancel">
+                    <button type="button" class="btn btn-cancel" id="btnCancel">
                         Hủy bỏ
                     </button>
 
                     <div class="action-right">
 
-                        <button type="button" class="btn btn-secondary">
+                        <button type="button" class="btn btn-link hidden" id="btnBack">Quay lại</button>
+
+                        <button type="button" class="btn btn-secondary" id="btnDraft">
                             Lưu nháp
                         </button>
 
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" id="btnNext">
                             Tiếp theo
                         </button>
 

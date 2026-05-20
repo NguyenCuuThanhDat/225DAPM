@@ -20,6 +20,17 @@
     transform: translateY(-12px);
 }
 
+/* Hide step number when completed (checkmark from global.css) */
+#formStepper .step.completed .step-circle {
+    font-size: 0;
+    color: transparent;
+}
+
+#formStepper .step.completed .step-circle::before {
+    font-size: 20px;
+    color: white;
+}
+
 .upload-box .highlight {
     color: var(--primary-color);
     font-weight: 500;
@@ -38,47 +49,98 @@
     font-weight: 500;
 }
 
-.confirm-panel.hidden,
 .hidden {
     display: none !important;
 }
 
-.confirm-intro {
-    color: var(--text-muted);
-    font-size: 14px;
+/* Step 2: summary cards */
+.confirm-card {
     margin-bottom: 20px;
 }
 
-.confirm-summary {
+.confirm-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 32px;
+}
+
+.confirm-info-grid .info-cell {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
-.confirm-row {
-    display: flex;
-    gap: 16px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 14px;
+.confirm-info-grid .info-cell.full-width {
+    grid-column: 1 / -1;
 }
 
-.confirm-row:last-child {
-    border-bottom: none;
-}
-
-.confirm-row strong {
-    width: 180px;
-    flex-shrink: 0;
+.info-label {
+    font-size: 13px;
     color: var(--text-muted);
     font-weight: 500;
 }
 
-.confirm-row span {
-    flex: 1;
+.info-value {
+    font-size: 15px;
+    color: var(--text-main);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.confirm-docs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.doc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.doc-row:last-child {
+    border-bottom: none;
+}
+
+.doc-label {
+    color: var(--text-muted);
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.doc-value {
+    color: var(--text-main);
+    font-weight: 500;
+    text-align: right;
+    word-break: break-all;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-family);
+    cursor: pointer;
+    padding: 10px 16px;
+}
+
+.btn-link:hover {
     color: var(--text-main);
 }
 
 .toast-error {
     background: #DC2626;
+}
+
+@media (max-width: 768px) {
+    .confirm-info-grid {
+        grid-template-columns: 1fr;
+    }
 }

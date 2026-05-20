@@ -42,13 +42,13 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="ho-khau.html">
                     <i class='bx bx-group'></i>
                     Hộ khẩu
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="yeu-cau-cua-toi.html">
                     <i class='bx bx-file'></i>
                     Yêu cầu của tôi
                 </a>
@@ -86,9 +86,9 @@
                     <i class='bx bx-search'></i>
                     <input type="text" placeholder="Tìm kiếm nhanh...">
                 </div>
-                <div class="notification">
+                <a href="thong-bao.html" class="notification" title="Thông báo">
                     <i class='bx bx-bell'></i>
-                </div>
+                </a>
                 <div class="avatar-small">N</div>
             </div>
         </header>
@@ -211,16 +211,21 @@
                     </div>
                 </div>
 
-                <div class="form-card confirm-panel hidden" id="step2Panel">
-                    <h3>Xác nhận thông tin</h3>
-                    <p class="confirm-intro">Vui lòng kiểm tra lại thông tin trước khi gửi hồ sơ.</p>
-                    <div class="confirm-summary" id="confirmSummary"></div>
+                <div id="step2Panel" class="hidden">
+                    <div class="form-card confirm-card">
+                        <h3>Thông tin đã khai báo</h3>
+                        <div class="confirm-info-grid" id="confirmInfoGrid"></div>
+                    </div>
+                    <div class="form-card confirm-card">
+                        <h3>Giấy tờ đính kèm</h3>
+                        <div class="confirm-docs-list" id="confirmDocsList"></div>
+                    </div>
                 </div>
 
                 <div class="form-actions">
                     <button type="button" class="btn btn-cancel" id="btnCancel">Hủy bỏ</button>
                     <div class="action-right">
-                        <button type="button" class="btn btn-secondary hidden" id="btnBack">Quay lại</button>
+                        <button type="button" class="btn btn-link hidden" id="btnBack">Quay lại</button>
                         <button type="submit" class="btn btn-primary" id="btnNext">Tiếp theo</button>
                     </div>
                 </div>

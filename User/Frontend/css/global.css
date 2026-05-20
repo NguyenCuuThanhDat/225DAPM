@@ -243,6 +243,9 @@ body {
     color: var(--text-muted);
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .notification::after {

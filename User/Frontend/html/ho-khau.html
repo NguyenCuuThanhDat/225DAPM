@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sổ hộ khẩu - Quản lý nhân khẩu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/ho-khau.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+        </div>
+
+        <div class="user-profile">
+            <div class="avatar">N</div>
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="trang-chu.html">
+                    <i class='bx bx-home-alt'></i>
+                    Trang chủ
+                </a>
+            </li>
+            <li>
+                <a href="thong-tin-ca-nhan.html">
+                    <i class='bx bx-user'></i>
+                    Thông tin cá nhân
+                </a>
+            </li>
+            <li class="active">
+                <a href="ho-khau.html">
+                    <i class='bx bx-group'></i>
+                    Hộ khẩu
+                </a>
+            </li>
+            <li>
+                <a href="yeu-cau-cua-toi.html">
+                    <i class='bx bx-file'></i>
+                    Yêu cầu của tôi
+                </a>
+            </li>
+            <li>
+                <a href="thong-bao.html">
+                    <i class='bx bx-bell'></i>
+                    Thông báo
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout">
+            <a href="#">
+                <i class='bx bx-log-out'></i>
+                Đăng xuất
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <h1>Sổ hộ khẩu</h1>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" id="quickSearch" placeholder="Tìm kiếm nhanh...">
+                </div>
+                <a href="thong-bao.html" class="notification" title="Thông báo">
+                    <i class='bx bx-bell'></i>
+                </a>
+                <div class="avatar-small">N</div>
+            </div>
+        </header>
+
+        <section class="ho-khau-wrapper">
+            <div class="household-card">
+                <div class="household-card-body">
+                    <span class="household-label">SỐ HỘ KHẨU</span>
+                    <h2 class="household-code">Mã hộ khẩu: HK-079-001234</h2>
+                    <p class="household-address">123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM</p>
+                </div>
+                <div class="household-card-actions">
+                    <span class="status-badge active">Đang hiệu lực</span>
+                    <button type="button" class="btn btn-outline" id="btnDownloadPdf">
+                        <i class='bx bx-download'></i>
+                        Tải sổ hộ khẩu (PDF)
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class='bx bx-group'></i>
+                    </div>
+                    <div class="stat-content">
+                        <p>Tổng thành viên</p>
+                        <h3>4 <span>người</span></h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="stat-content">
+                        <p>Người lớn</p>
+                        <h3>3 <span>người</span></h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class='bx bx-child'></i>
+                    </div>
+                    <div class="stat-content">
+                        <p>Trẻ em</p>
+                        <h3>1 <span>người</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="members-section">
+                <div class="members-header">
+                    <h3>Danh sách thành viên</h3>
+                    <a href="khai-bao-nhan-khau.html" class="btn btn-primary btn-add">
+                        <i class='bx bx-plus'></i>
+                        Thêm thành viên
+                    </a>
+                </div>
+
+                <div class="members-list" id="membersList"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/ho-khau.js"></script>
+</body>
+</html>

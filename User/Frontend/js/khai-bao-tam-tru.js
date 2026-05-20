@@ -1,7 +1,8 @@
 const form = document.getElementById('tamTruForm');
 const step1Panel = document.getElementById('step1Panel');
 const step2Panel = document.getElementById('step2Panel');
-const confirmSummary = document.getElementById('confirmSummary');
+const confirmInfoGrid = document.getElementById('confirmInfoGrid');
+const confirmDocsList = document.getElementById('confirmDocsList');
 const btnNext = document.getElementById('btnNext');
 const btnBack = document.getElementById('btnBack');
 const btnCancel = document.getElementById('btnCancel');
@@ -11,6 +12,12 @@ const steps = document.querySelectorAll('#formStepper .step');
 let currentStep = 1;
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const uploadedFiles = {};
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
 
 function setStep(step) {
     currentStep = step;
@@ -34,7 +41,7 @@ function validateStep1() {
     let valid = true;
 
     required.forEach((field) => {
-        const empty = field.type === 'file' ? !field.files.length : !field.value.trim();
+        const empty = !field.value.trim();
         field.style.borderColor = empty ? '#DC2626' : '';
         if (empty) valid = false;
     });
@@ -66,28 +73,65 @@ function validateStep1() {
     return valid;
 }
 
-function formatDate(value) {
-    if (!value) return '';
-    const [y, m, d] = value.split('-');
-    return `${d}/${m}/${y}`;
+function daysBetween(startIso, endIso) {
+    if (!startIso || !endIso) return 0;
+    const ms = new Date(endIso) - new Date(startIso);
+    return Math.max(0, Math.round(ms / 86400000));
 }
 
 function getSelectText(name) {
     const select = form.elements[name];
-    return select.options[select.selectedIndex]?.text || '';
+    return select?.options[select.selectedIndex]?.text || '';
 }
 
 function buildSummary() {
-    confirmSummary.innerHTML = `
-        <div class="confirm-row"><strong>Họ và tên</strong><span>${form.fullName.value}</span></div>
-        <div class="confirm-row"><strong>Ngày sinh</strong><span>${formatDate(form.birthDate.value)}</span></div>
-        <div class="confirm-row"><strong>Số CCCD/CMND</strong><span>${form.cccd.value}</span></div>
-        <div class="confirm-row"><strong>Số điện thoại</strong><span>${form.phone.value}</span></div>
-        <div class="confirm-row"><strong>Địa chỉ</strong><span>${form.address.value}, ${getSelectText('ward')}, ${getSelectText('district')}</span></div>
-        <div class="confirm-row"><strong>Thời gian tạm trú</strong><span>${formatDate(form.startDate.value)} – ${formatDate(form.endDate.value)}</span></div>
-        <div class="confirm-row"><strong>CCCD/CMND</strong><span>${uploadedFiles.cccd?.name || ''}</span></div>
-        <div class="confirm-row"><strong>Chứng minh chỗ ở</strong><span>${uploadedFiles.residence?.name || ''}</span></div>
+    const ward = getSelectText('ward');
+    const district = getSelectText('district');
+    const addressLine = `${form.address.value}, ${ward}, ${district}`;
+    const start = form.startDate.value;
+    const end = form.endDate.value;
+    const days = daysBetween(start, end);
+
+    confirmInfoGrid.innerHTML = `
+        <div class="info-cell">
+            <span class="info-label">Họ và tên</span>
+            <span class="info-value">${escapeHtml(form.fullName.value)}</span>
+        </div>
+        <div class="info-cell">
+            <span class="info-label">Số CCCD</span>
+            <span class="info-value">${escapeHtml(form.cccd.value)}</span>
+        </div>
+        <div class="info-cell full-width">
+            <span class="info-label">Địa chỉ tạm trú</span>
+            <span class="info-value">${escapeHtml(addressLine)}</span>
+        </div>
+        <div class="info-cell full-width">
+            <span class="info-label">Thời gian</span>
+            <span class="info-value">${escapeHtml(start)} đến ${escapeHtml(end)} (${days} ngày)</span>
+        </div>
     `;
+
+    confirmDocsList.innerHTML = `
+        <div class="doc-row">
+            <span class="doc-label">CCCD/CMND</span>
+            <span class="doc-value">${escapeHtml(uploadedFiles.cccd?.name || '')}</span>
+        </div>
+        <div class="doc-row">
+            <span class="doc-label">Giấy tờ chỗ ở</span>
+            <span class="doc-value">${escapeHtml(uploadedFiles.residence?.name || '')}</span>
+        </div>
+    `;
+}
+
+function clearUploads() {
+    Object.keys(uploadedFiles).forEach((k) => delete uploadedFiles[k]);
+    document.querySelectorAll('.upload-box').forEach((box) => {
+        box.classList.remove('has-file');
+        const fn = box.querySelector('.file-name');
+        if (fn) fn.textContent = '';
+        const input = box.querySelector('input[type="file"]');
+        if (input) input.value = '';
+    });
 }
 
 function handleFile(box, file) {
@@ -149,12 +193,7 @@ form.addEventListener('submit', (e) => {
     showToast('Gửi hồ sơ đăng ký tạm trú thành công');
     setTimeout(() => {
         form.reset();
-        uploadedFiles.cccd = null;
-        uploadedFiles.residence = null;
-        document.querySelectorAll('.upload-box').forEach((box) => {
-            box.classList.remove('has-file');
-            box.querySelector('.file-name').textContent = '';
-        });
+        clearUploads();
         setStep(1);
     }, 1500);
 });
@@ -164,6 +203,7 @@ btnBack.addEventListener('click', () => setStep(1));
 btnCancel.addEventListener('click', () => {
     if (confirm('Bạn có chắc muốn hủy và xóa thông tin đã nhập?')) {
         form.reset();
+        clearUploads();
         setStep(1);
     }
 });
