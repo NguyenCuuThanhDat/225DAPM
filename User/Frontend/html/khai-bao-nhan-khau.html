@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khai nhân khẩu - Quản lý nhân khẩu</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/khai-bao-nhan-khau.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bxs-bank'></i>
+            <div>
+                <h2>QUẢN LÝ NHÂN KHẨU</h2>
+                <p>UBND Phường/Xã</p>
+            </div>
+        </div>
+
+        <div class="user-profile">
+            <div class="avatar">N</div>
+            <div class="user-info">
+                <h4>Nguyễn Văn A</h4>
+                <span class="role">Công dân</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li class="active">
+                <a href="trang-chu.html">
+                    <i class='bx bx-home-alt'></i>
+                    Trang chủ
+                </a>
+            </li>
+            <li>
+                <a href="thong-tin-ca-nhan.html">
+                    <i class='bx bx-user'></i>
+                    Thông tin cá nhân
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-group'></i>
+                    Hộ khẩu
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-file'></i>
+                    Yêu cầu của tôi
+                </a>
+            </li>
+            <li>
+                <a href="thong-bao.html">
+                    <i class='bx bx-bell'></i>
+                    Thông báo
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout">
+            <a href="#">
+                <i class='bx bx-log-out'></i>
+                Đăng xuất
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <h1>Khai nhân khẩu</h1>
+                <div class="breadcrumb">
+                    <span>Khai nhân khẩu</span>
+                    <i class='bx bx-chevron-right'></i>
+                    <span>Dịch vụ công</span>
+                    <i class='bx bx-chevron-right'></i>
+                    <span class="active">Khai nhân khẩu</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Tìm kiếm nhanh...">
+                </div>
+                <div class="notification">
+                    <i class='bx bx-bell'></i>
+                </div>
+                <div class="avatar-small">N</div>
+            </div>
+        </header>
+
+        <section class="content-wrapper">
+            <div class="page-intro">
+                <h2>Khai nhân khẩu</h2>
+                <p>Thêm thành viên mới vào sổ hộ khẩu hiện tại của gia đình.</p>
+            </div>
+
+            <form class="nhan-khau-form" id="nhanKhauForm">
+                <div id="membersContainer"></div>
+
+                <button type="button" class="btn-add-member" id="btnAddMember">
+                    <i class='bx bx-plus'></i>
+                    Thêm nhân khẩu
+                </button>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-cancel" id="btnCancel">Hủy bỏ</button>
+                    <div class="action-right">
+                        <button type="submit" class="btn btn-primary">Gửi hồ sơ</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <template id="memberTemplate">
+        <div class="form-card member-card">
+            <div class="member-card-header">
+                <h3 class="member-title">Nhân khẩu #1</h3>
+                <button type="button" class="btn-remove-member" title="Xóa nhân khẩu">
+                    <i class='bx bx-trash'></i>
+                </button>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Họ và tên <span class="required">*</span></label>
+                    <input type="text" name="fullName" placeholder="Nhập họ và tên" required>
+                </div>
+                <div class="form-group">
+                    <label>Ngày sinh <span class="required">*</span></label>
+                    <div class="input-icon">
+                        <input type="date" name="birthDate" required>
+                        <i class='bx bx-calendar'></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Số CCCD/CMND <span class="required">*</span></label>
+                    <input type="text" name="cccd" placeholder="Nhập số thẻ căn cước" required>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" name="phone" placeholder="Nhập số điện thoại">
+                </div>
+                <div class="form-group full-width">
+                    <label>Quan hệ với chủ hộ <span class="required">*</span></label>
+                    <select name="relationship" required>
+                        <option value="">Chọn quan hệ</option>
+                        <option value="vo-chong">Vợ/Chồng</option>
+                        <option value="con">Con</option>
+                        <option value="cha-me">Cha/Mẹ</option>
+                        <option value="anh-chi-em">Anh/Chị/Em</option>
+                        <option value="khac">Khác</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="upload-item">
+                <label>Giấy tờ chứng minh (Khai sinh, CCCD...)</label>
+                <div class="upload-box">
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                    <i class='bx bx-cloud-upload'></i>
+                    <p><span class="highlight">Nhấn để tải lên</span> hoặc kéo thả file vào đây</p>
+                    <span class="sub-text">Hỗ trợ: PDF, JPG, PNG (Tối đa 5MB)</span>
+                    <span class="file-name"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/khai-bao-nhan-khau.js"></script>
+</body>
+</html>
+

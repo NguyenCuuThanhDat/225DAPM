@@ -1,0 +1,84 @@
+@import url('./global.css');
+
+.tam-tru-form .form-card {
+    max-width: 100%;
+}
+
+.tam-tru-form .form-card h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.stepper-2 {
+    max-width: 480px;
+    margin: 0 auto 32px;
+}
+
+.stepper-2 .step-line {
+    flex: 2;
+    margin: 0 12px;
+    transform: translateY(-12px);
+}
+
+.upload-box .highlight {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.upload-box.has-file {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.upload-box .file-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.confirm-panel.hidden,
+.hidden {
+    display: none !important;
+}
+
+.confirm-intro {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.confirm-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.confirm-row {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.confirm-row:last-child {
+    border-bottom: none;
+}
+
+.confirm-row strong {
+    width: 180px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.confirm-row span {
+    flex: 1;
+    color: var(--text-main);
+}
+
+.toast-error {
+    background: #DC2626;
+}

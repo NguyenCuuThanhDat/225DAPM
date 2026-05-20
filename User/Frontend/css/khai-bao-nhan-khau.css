@@ -1,0 +1,91 @@
+@import url('./global.css');
+
+.nhan-khau-form .form-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.member-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.member-card-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn-remove-member {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-remove-member:hover {
+    color: #DC2626;
+    background: #FEF2F2;
+}
+
+.btn-remove-member.hidden {
+    display: none;
+}
+
+.btn-add-member {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 24px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: white;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-add-member:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.btn-add-member i {
+    font-size: 20px;
+}
+
+.nhan-khau-form .upload-box .highlight {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.nhan-khau-form .upload-box.has-file {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.nhan-khau-form .upload-box .file-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.nhan-khau-form .form-actions {
+    max-width: 100%;
+}
